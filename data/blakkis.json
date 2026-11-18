@@ -1,0 +1,5009 @@
+{
+ "repo": "blakkis",
+ "title": "blakkis",
+ "lang": "js",
+ "root": "blakkis",
+ "files": [
+  {
+   "id": "index.js",
+   "path": "index.js",
+   "dir": ".",
+   "desc": "Main entrypoint: creates the bot (polling or webhook)"
+  },
+  {
+   "id": "web.js",
+   "path": "web.js",
+   "dir": ".",
+   "desc": "Express server receiving Telegram webhooks"
+  },
+  {
+   "id": "app/init.js",
+   "path": "app/init.js",
+   "dir": "app",
+   "desc": "Sets log levels, hooks bot events, loads commands"
+  },
+  {
+   "id": "app/lib/utils.js",
+   "path": "app/lib/utils.js",
+   "dir": "app/lib",
+   "desc": "Bot send helpers, number parsing, misc"
+  },
+  {
+   "id": "app/settings.js",
+   "path": "app/settings.js",
+   "dir": "app",
+   "desc": "Runtime settings from env"
+  },
+  {
+   "id": "app/announcements.js",
+   "path": "app/announcements.js",
+   "dir": "app",
+   "desc": "Release announcements shown to users"
+  },
+  {
+   "id": "app/constants.js",
+   "path": "app/constants.js",
+   "dir": "app",
+   "desc": "Drink definitions & physiological constants"
+  },
+  {
+   "id": "app/strings.js",
+   "path": "app/strings.js",
+   "dir": "app",
+   "desc": "All user-facing (Finnish) strings"
+  },
+  {
+   "id": "app/lib/errors.js",
+   "path": "app/lib/errors.js",
+   "dir": "app/lib",
+   "desc": "Typed errors for the dispatcher"
+  },
+  {
+   "id": "app/lib/commands.js",
+   "path": "app/lib/commands.js",
+   "dir": "app/lib",
+   "desc": "Command registry & dispatcher"
+  },
+  {
+   "id": "app/lib/inline-keyboard-command.js",
+   "path": "app/lib/inline-keyboard-command.js",
+   "dir": "app/lib",
+   "desc": "Inline keyboard command tree"
+  },
+  {
+   "id": "app/lib/context.js",
+   "path": "app/lib/context.js",
+   "dir": "app/lib",
+   "desc": "Per-user conversation context & replies"
+  },
+  {
+   "id": "app/lib/message.js",
+   "path": "app/lib/message.js",
+   "dir": "app/lib",
+   "desc": "Message object constructors"
+  },
+  {
+   "id": "app/lib/linechart.js",
+   "path": "app/lib/linechart.js",
+   "dir": "app/lib",
+   "desc": "Renders line charts to PNG buffers"
+  },
+  {
+   "id": "app/lib/alcomath.js",
+   "path": "app/lib/alcomath.js",
+   "dir": "app/lib",
+   "desc": "EBAC estimation math"
+  },
+  {
+   "id": "app/db/users.js",
+   "path": "app/db/users.js",
+   "dir": "app/db",
+   "desc": "User model & queries"
+  },
+  {
+   "id": "app/db/groups.js",
+   "path": "app/db/groups.js",
+   "dir": "app/db",
+   "desc": "Group model & listings"
+  },
+  {
+   "id": "app/db/stats.js",
+   "path": "app/db/stats.js",
+   "dir": "app/db",
+   "desc": "Aggregate statistics queries"
+  },
+  {
+   "id": "app/commands/kalja033.js",
+   "path": "app/commands/kalja033.js",
+   "dir": "app/commands",
+   "desc": ""
+  },
+  {
+   "id": "app/commands/kalja05.js",
+   "path": "app/commands/kalja05.js",
+   "dir": "app/commands",
+   "desc": ""
+  },
+  {
+   "id": "app/commands/juoma.js",
+   "path": "app/commands/juoma.js",
+   "dir": "app/commands",
+   "desc": ""
+  },
+  {
+   "id": "app/commands/jalkikellotus.js",
+   "path": "app/commands/jalkikellotus.js",
+   "dir": "app/commands",
+   "desc": ""
+  },
+  {
+   "id": "app/commands/laatta.js",
+   "path": "app/commands/laatta.js",
+   "dir": "app/commands",
+   "desc": ""
+  },
+  {
+   "id": "app/commands/start.js",
+   "path": "app/commands/start.js",
+   "dir": "app/commands",
+   "desc": ""
+  },
+  {
+   "id": "app/commands/start/juo.js",
+   "path": "app/commands/start/juo.js",
+   "dir": "app/commands/start",
+   "desc": ""
+  },
+  {
+   "id": "app/commands/start/tilastoja.js",
+   "path": "app/commands/start/tilastoja.js",
+   "dir": "app/commands/start",
+   "desc": ""
+  },
+  {
+   "id": "app/commands/start/asetukset.js",
+   "path": "app/commands/start/asetukset.js",
+   "dir": "app/commands/start",
+   "desc": ""
+  },
+  {
+   "id": "app/commands/start/luo_tunnus.js",
+   "path": "app/commands/start/luo_tunnus.js",
+   "dir": "app/commands/start",
+   "desc": ""
+  },
+  {
+   "id": "app/commands/start/help.js",
+   "path": "app/commands/start/help.js",
+   "dir": "app/commands/start",
+   "desc": ""
+  },
+  {
+   "id": "app/commands/promillet.js",
+   "path": "app/commands/promillet.js",
+   "dir": "app/commands",
+   "desc": ""
+  },
+  {
+   "id": "app/commands/annokset.js",
+   "path": "app/commands/annokset.js",
+   "dir": "app/commands",
+   "desc": ""
+  },
+  {
+   "id": "app/commands/kuvaaja.js",
+   "path": "app/commands/kuvaaja.js",
+   "dir": "app/commands",
+   "desc": ""
+  },
+  {
+   "id": "app/commands/whoami.js",
+   "path": "app/commands/whoami.js",
+   "dir": "app/commands",
+   "desc": ""
+  },
+  {
+   "id": "app/commands/stats.js",
+   "path": "app/commands/stats.js",
+   "dir": "app/commands",
+   "desc": ""
+  },
+  {
+   "id": "app/commands/stats2.js",
+   "path": "app/commands/stats2.js",
+   "dir": "app/commands",
+   "desc": ""
+  },
+  {
+   "id": "app/commands/admin_stats.js",
+   "path": "app/commands/admin_stats.js",
+   "dir": "app/commands",
+   "desc": ""
+  },
+  {
+   "id": "app/commands/tunnus.js",
+   "path": "app/commands/tunnus.js",
+   "dir": "app/commands",
+   "desc": ""
+  },
+  {
+   "id": "app/commands/moro.js",
+   "path": "app/commands/moro.js",
+   "dir": "app/commands",
+   "desc": ""
+  },
+  {
+   "id": "app/commands/poistu.js",
+   "path": "app/commands/poistu.js",
+   "dir": "app/commands",
+   "desc": ""
+  },
+  {
+   "id": "app/commands/data.js",
+   "path": "app/commands/data.js",
+   "dir": "app/commands",
+   "desc": ""
+  },
+  {
+   "id": "app/commands/terms.js",
+   "path": "app/commands/terms.js",
+   "dir": "app/commands",
+   "desc": ""
+  },
+  {
+   "id": "app/commands/about.js",
+   "path": "app/commands/about.js",
+   "dir": "app/commands",
+   "desc": ""
+  },
+  {
+   "id": "app/commands/help.js",
+   "path": "app/commands/help.js",
+   "dir": "app/commands",
+   "desc": ""
+  },
+  {
+   "id": "app/commands/komennot.js",
+   "path": "app/commands/komennot.js",
+   "dir": "app/commands",
+   "desc": ""
+  },
+  {
+   "id": "app/commands/admin_loglevel.js",
+   "path": "app/commands/admin_loglevel.js",
+   "dir": "app/commands",
+   "desc": ""
+  },
+  {
+   "id": "(external)",
+   "path": "(external)",
+   "dir": "(external)",
+   "desc": "Telegram servers — outside this repo"
+  }
+ ],
+ "groups": {
+  "flow": [
+   {
+    "id": "entry",
+    "col": 0,
+    "title": "Entry",
+    "desc": "Process start & Telegram transport (polling or webhook)",
+    "hue": 6583435
+   },
+   {
+    "id": "bootstrap",
+    "col": 1,
+    "title": "Bootstrap",
+    "desc": "Wires bot events into the command framework",
+    "hue": 1013358
+   },
+   {
+    "id": "shared",
+    "col": 1,
+    "title": "Shared",
+    "desc": "Utilities, config, strings & errors used everywhere",
+    "hue": 7893356
+   },
+   {
+    "id": "dispatch",
+    "col": 2,
+    "title": "Dispatch",
+    "desc": "Parse message, find context, check rights, route to command",
+    "hue": 4405450
+   },
+   {
+    "id": "inline",
+    "col": 2,
+    "title": "Inline menus",
+    "desc": "Tree-structured inline keyboard commands",
+    "hue": 8141549
+   },
+   {
+    "id": "cmd_drink",
+    "col": 3,
+    "title": "Drinking",
+    "desc": "Commands that record drinks",
+    "hue": 1409085
+   },
+   {
+    "id": "cmd_start",
+    "col": 3,
+    "title": "/start menu",
+    "desc": "Inline keyboard main menu and its sub menus",
+    "hue": 5078031
+   },
+   {
+    "id": "cmd_status",
+    "col": 4,
+    "title": "Status",
+    "desc": "Current EBAC, standard drinks and graphs",
+    "hue": 1483594
+   },
+   {
+    "id": "cmd_stats",
+    "col": 4,
+    "title": "Statistics",
+    "desc": "Group & global statistics",
+    "hue": 6660877
+   },
+   {
+    "id": "cmd_account",
+    "col": 4,
+    "title": "Account & groups",
+    "desc": "Profile, joining groups, data export",
+    "hue": 366185
+   },
+   {
+    "id": "cmd_info",
+    "col": 4,
+    "title": "Info & admin",
+    "desc": "Static info and admin tooling",
+    "hue": 889992
+   },
+   {
+    "id": "domain",
+    "col": 5,
+    "title": "Alcohol math",
+    "desc": "Widmark-based EBAC estimation",
+    "hue": 11817737
+   },
+   {
+    "id": "output",
+    "col": 5,
+    "title": "Replies",
+    "desc": "Context reply helpers & message objects",
+    "hue": 223649
+   },
+   {
+    "id": "persistence",
+    "col": 6,
+    "title": "Persistence",
+    "desc": "PostgreSQL models: users, groups, stats",
+    "hue": 10105874
+   }
+  ],
+  "files": [
+   {
+    "id": "(external)",
+    "title": "Telegram Bot API",
+    "desc": "Telegram servers — outside this repo",
+    "col": 0,
+    "dir": "(external)",
+    "hue": 6583435
+   },
+   {
+    "id": "index.js",
+    "title": "index.js",
+    "desc": "Main entrypoint: creates the bot (polling or webhook)",
+    "col": 0,
+    "dir": ".",
+    "hue": 4674921
+   },
+   {
+    "id": "web.js",
+    "title": "web.js",
+    "desc": "Express server receiving Telegram webhooks",
+    "col": 0,
+    "dir": ".",
+    "hue": 4674921
+   },
+   {
+    "id": "app/announcements.js",
+    "title": "announcements.js",
+    "desc": "Release announcements shown to users",
+    "col": 1,
+    "dir": "app",
+    "hue": 1013358
+   },
+   {
+    "id": "app/constants.js",
+    "title": "constants.js",
+    "desc": "Drink definitions & physiological constants",
+    "col": 1,
+    "dir": "app",
+    "hue": 1013358
+   },
+   {
+    "id": "app/init.js",
+    "title": "init.js",
+    "desc": "Sets log levels, hooks bot events, loads commands",
+    "col": 1,
+    "dir": "app",
+    "hue": 1013358
+   },
+   {
+    "id": "app/settings.js",
+    "title": "settings.js",
+    "desc": "Runtime settings from env",
+    "col": 1,
+    "dir": "app",
+    "hue": 1013358
+   },
+   {
+    "id": "app/strings.js",
+    "title": "strings.js",
+    "desc": "All user-facing (Finnish) strings",
+    "col": 1,
+    "dir": "app",
+    "hue": 1013358
+   },
+   {
+    "id": "app/lib/alcomath.js",
+    "title": "alcomath.js",
+    "desc": "EBAC estimation math",
+    "col": 2,
+    "dir": "app/lib",
+    "hue": 4405450
+   },
+   {
+    "id": "app/lib/commands.js",
+    "title": "commands.js",
+    "desc": "Command registry & dispatcher",
+    "col": 2,
+    "dir": "app/lib",
+    "hue": 4405450
+   },
+   {
+    "id": "app/lib/context.js",
+    "title": "context.js",
+    "desc": "Per-user conversation context & replies",
+    "col": 2,
+    "dir": "app/lib",
+    "hue": 4405450
+   },
+   {
+    "id": "app/lib/errors.js",
+    "title": "errors.js",
+    "desc": "Typed errors for the dispatcher",
+    "col": 2,
+    "dir": "app/lib",
+    "hue": 4405450
+   },
+   {
+    "id": "app/lib/inline-keyboard-command.js",
+    "title": "inline-keyboard-command.js",
+    "desc": "Inline keyboard command tree",
+    "col": 2,
+    "dir": "app/lib",
+    "hue": 4405450
+   },
+   {
+    "id": "app/lib/linechart.js",
+    "title": "linechart.js",
+    "desc": "Renders line charts to PNG buffers",
+    "col": 2,
+    "dir": "app/lib",
+    "hue": 4405450
+   },
+   {
+    "id": "app/lib/message.js",
+    "title": "message.js",
+    "desc": "Message object constructors",
+    "col": 2,
+    "dir": "app/lib",
+    "hue": 4405450
+   },
+   {
+    "id": "app/lib/utils.js",
+    "title": "utils.js",
+    "desc": "Bot send helpers, number parsing, misc",
+    "col": 2,
+    "dir": "app/lib",
+    "hue": 4405450
+   },
+   {
+    "id": "app/commands/about.js",
+    "title": "about.js",
+    "desc": "",
+    "col": 3,
+    "dir": "app/commands",
+    "hue": 1409085
+   },
+   {
+    "id": "app/commands/admin_loglevel.js",
+    "title": "admin_loglevel.js",
+    "desc": "",
+    "col": 3,
+    "dir": "app/commands",
+    "hue": 1409085
+   },
+   {
+    "id": "app/commands/admin_stats.js",
+    "title": "admin_stats.js",
+    "desc": "",
+    "col": 3,
+    "dir": "app/commands",
+    "hue": 1409085
+   },
+   {
+    "id": "app/commands/annokset.js",
+    "title": "annokset.js",
+    "desc": "",
+    "col": 3,
+    "dir": "app/commands",
+    "hue": 1409085
+   },
+   {
+    "id": "app/commands/data.js",
+    "title": "data.js",
+    "desc": "",
+    "col": 3,
+    "dir": "app/commands",
+    "hue": 1409085
+   },
+   {
+    "id": "app/commands/help.js",
+    "title": "help.js",
+    "desc": "",
+    "col": 3,
+    "dir": "app/commands",
+    "hue": 1409085
+   },
+   {
+    "id": "app/commands/jalkikellotus.js",
+    "title": "jalkikellotus.js",
+    "desc": "",
+    "col": 3,
+    "dir": "app/commands",
+    "hue": 1409085
+   },
+   {
+    "id": "app/commands/juoma.js",
+    "title": "juoma.js",
+    "desc": "",
+    "col": 3,
+    "dir": "app/commands",
+    "hue": 1409085
+   },
+   {
+    "id": "app/commands/kalja033.js",
+    "title": "kalja033.js",
+    "desc": "",
+    "col": 3,
+    "dir": "app/commands",
+    "hue": 1409085
+   },
+   {
+    "id": "app/commands/kalja05.js",
+    "title": "kalja05.js",
+    "desc": "",
+    "col": 3,
+    "dir": "app/commands",
+    "hue": 1409085
+   },
+   {
+    "id": "app/commands/komennot.js",
+    "title": "komennot.js",
+    "desc": "",
+    "col": 3,
+    "dir": "app/commands",
+    "hue": 1409085
+   },
+   {
+    "id": "app/commands/kuvaaja.js",
+    "title": "kuvaaja.js",
+    "desc": "",
+    "col": 4,
+    "dir": "app/commands",
+    "hue": 1409085
+   },
+   {
+    "id": "app/commands/laatta.js",
+    "title": "laatta.js",
+    "desc": "",
+    "col": 4,
+    "dir": "app/commands",
+    "hue": 1409085
+   },
+   {
+    "id": "app/commands/moro.js",
+    "title": "moro.js",
+    "desc": "",
+    "col": 4,
+    "dir": "app/commands",
+    "hue": 1409085
+   },
+   {
+    "id": "app/commands/poistu.js",
+    "title": "poistu.js",
+    "desc": "",
+    "col": 4,
+    "dir": "app/commands",
+    "hue": 1409085
+   },
+   {
+    "id": "app/commands/promillet.js",
+    "title": "promillet.js",
+    "desc": "",
+    "col": 4,
+    "dir": "app/commands",
+    "hue": 1409085
+   },
+   {
+    "id": "app/commands/start.js",
+    "title": "start.js",
+    "desc": "",
+    "col": 4,
+    "dir": "app/commands",
+    "hue": 1409085
+   },
+   {
+    "id": "app/commands/stats.js",
+    "title": "stats.js",
+    "desc": "",
+    "col": 4,
+    "dir": "app/commands",
+    "hue": 1409085
+   },
+   {
+    "id": "app/commands/stats2.js",
+    "title": "stats2.js",
+    "desc": "",
+    "col": 4,
+    "dir": "app/commands",
+    "hue": 1409085
+   },
+   {
+    "id": "app/commands/terms.js",
+    "title": "terms.js",
+    "desc": "",
+    "col": 4,
+    "dir": "app/commands",
+    "hue": 1409085
+   },
+   {
+    "id": "app/commands/tunnus.js",
+    "title": "tunnus.js",
+    "desc": "",
+    "col": 4,
+    "dir": "app/commands",
+    "hue": 1409085
+   },
+   {
+    "id": "app/commands/whoami.js",
+    "title": "whoami.js",
+    "desc": "",
+    "col": 4,
+    "dir": "app/commands",
+    "hue": 1409085
+   },
+   {
+    "id": "app/commands/start/asetukset.js",
+    "title": "asetukset.js",
+    "desc": "",
+    "col": 5,
+    "dir": "app/commands/start",
+    "hue": 5078031
+   },
+   {
+    "id": "app/commands/start/help.js",
+    "title": "help.js",
+    "desc": "",
+    "col": 5,
+    "dir": "app/commands/start",
+    "hue": 5078031
+   },
+   {
+    "id": "app/commands/start/juo.js",
+    "title": "juo.js",
+    "desc": "",
+    "col": 5,
+    "dir": "app/commands/start",
+    "hue": 5078031
+   },
+   {
+    "id": "app/commands/start/luo_tunnus.js",
+    "title": "luo_tunnus.js",
+    "desc": "",
+    "col": 5,
+    "dir": "app/commands/start",
+    "hue": 5078031
+   },
+   {
+    "id": "app/commands/start/tilastoja.js",
+    "title": "tilastoja.js",
+    "desc": "",
+    "col": 5,
+    "dir": "app/commands/start",
+    "hue": 5078031
+   },
+   {
+    "id": "app/db/groups.js",
+    "title": "groups.js",
+    "desc": "Group model & listings",
+    "col": 6,
+    "dir": "app/db",
+    "hue": 10105874
+   },
+   {
+    "id": "app/db/stats.js",
+    "title": "stats.js",
+    "desc": "Aggregate statistics queries",
+    "col": 6,
+    "dir": "app/db",
+    "hue": 10105874
+   },
+   {
+    "id": "app/db/users.js",
+    "title": "users.js",
+    "desc": "User model & queries",
+    "col": 6,
+    "dir": "app/db",
+    "hue": 10105874
+   }
+  ]
+ },
+ "dirs": [
+  {
+   "dir": "(external)",
+   "cols": [
+    0
+   ],
+   "hue": 6583435
+  },
+  {
+   "dir": ".",
+   "cols": [
+    0
+   ],
+   "hue": 4674921
+  },
+  {
+   "dir": "app",
+   "cols": [
+    1
+   ],
+   "hue": 1013358
+  },
+  {
+   "dir": "app/lib",
+   "cols": [
+    2
+   ],
+   "hue": 4405450
+  },
+  {
+   "dir": "app/commands",
+   "cols": [
+    3,
+    4
+   ],
+   "hue": 1409085
+  },
+  {
+   "dir": "app/commands/start",
+   "cols": [
+    5
+   ],
+   "hue": 5078031
+  },
+  {
+   "dir": "app/db",
+   "cols": [
+    6
+   ],
+   "hue": 10105874
+  }
+ ],
+ "functions": [
+  {
+   "id": "telegram",
+   "file": "(external)",
+   "name": "Telegram Bot API",
+   "params": "",
+   "startLine": 0,
+   "endLine": 0,
+   "flowGroup": "entry",
+   "kind": "external",
+   "desc": [
+    "External service — not part of this repository.",
+    "",
+    "Delivers updates to the bot either by long polling",
+    "(getUpdates, BOT_MODE=polling) or by webhook",
+    "(POST /<TOKEN> handled in web.js).",
+    "",
+    "Receives replies: sendMessage, sendPhoto,",
+    "sendDocument, editMessageText."
+   ]
+  },
+  {
+   "id": "index.boot",
+   "file": "index.js",
+   "name": "index.js (top level)",
+   "params": "",
+   "startLine": 27,
+   "endLine": 60,
+   "flowGroup": "entry",
+   "kind": "toplevel"
+  },
+  {
+   "id": "web.server",
+   "file": "web.js",
+   "name": "express app",
+   "params": "",
+   "startLine": 30,
+   "endLine": 45,
+   "flowGroup": "entry",
+   "kind": "toplevel"
+  },
+  {
+   "id": "web.webhook",
+   "file": "web.js",
+   "name": "webhook(bot, token)",
+   "params": "bot, token",
+   "startLine": 47,
+   "endLine": 52,
+   "flowGroup": "entry",
+   "kind": "fn"
+  },
+  {
+   "id": "init.main",
+   "file": "app/init.js",
+   "name": "init(bot)",
+   "params": "bot",
+   "startLine": 27,
+   "endLine": 85,
+   "flowGroup": "bootstrap",
+   "kind": "fn"
+  },
+  {
+   "id": "init.onMessage",
+   "file": "app/init.js",
+   "name": "on('message')",
+   "params": "msg",
+   "startLine": 46,
+   "endLine": 52,
+   "flowGroup": "bootstrap",
+   "kind": "fn"
+  },
+  {
+   "id": "init.onCallback",
+   "file": "app/init.js",
+   "name": "on('callback_query')",
+   "params": "msg",
+   "startLine": 54,
+   "endLine": 58,
+   "flowGroup": "bootstrap",
+   "kind": "fn"
+  },
+  {
+   "id": "utils.attachMethods",
+   "file": "app/lib/utils.js",
+   "name": "attachMethods",
+   "params": "msg, bot",
+   "startLine": 165,
+   "endLine": 172,
+   "flowGroup": "bootstrap",
+   "kind": "fn"
+  },
+  {
+   "id": "utils.sendPrivate",
+   "file": "app/lib/utils.js",
+   "name": "createSendPrivateMsgFunction",
+   "params": "msg, bot",
+   "startLine": 37,
+   "endLine": 51,
+   "flowGroup": "output",
+   "kind": "fn"
+  },
+  {
+   "id": "utils.sendChat",
+   "file": "app/lib/utils.js",
+   "name": "createSendChatMsgFunction",
+   "params": "msg, bot",
+   "startLine": 53,
+   "endLine": 67,
+   "flowGroup": "output",
+   "kind": "fn"
+  },
+  {
+   "id": "utils.sendTo",
+   "file": "app/lib/utils.js",
+   "name": "createSendMsgToFunction",
+   "params": "msg, bot",
+   "startLine": 69,
+   "endLine": 83,
+   "flowGroup": "output",
+   "kind": "fn"
+  },
+  {
+   "id": "utils.sendPhoto",
+   "file": "app/lib/utils.js",
+   "name": "createSendPhotoFunction",
+   "params": "msg, bot",
+   "startLine": 85,
+   "endLine": 99,
+   "flowGroup": "output",
+   "kind": "fn"
+  },
+  {
+   "id": "utils.sendDocument",
+   "file": "app/lib/utils.js",
+   "name": "createSendDocumentFunction",
+   "params": "msg, bot",
+   "startLine": 101,
+   "endLine": 115,
+   "flowGroup": "output",
+   "kind": "fn"
+  },
+  {
+   "id": "utils.editText",
+   "file": "app/lib/utils.js",
+   "name": "createEditMessageTextFunction",
+   "params": "msg, bot",
+   "startLine": 117,
+   "endLine": 131,
+   "flowGroup": "output",
+   "kind": "fn"
+  },
+  {
+   "id": "utils.hookNewRelic",
+   "file": "app/lib/utils.js",
+   "name": "hookNewRelic",
+   "params": "url, func",
+   "startLine": 133,
+   "endLine": 163,
+   "flowGroup": "shared",
+   "kind": "fn"
+  },
+  {
+   "id": "utils.roundTo",
+   "file": "app/lib/utils.js",
+   "name": "roundTo",
+   "params": "n, t",
+   "startLine": 174,
+   "endLine": 177,
+   "flowGroup": "shared",
+   "kind": "fn"
+  },
+  {
+   "id": "utils.toNumber",
+   "file": "app/lib/utils.js",
+   "name": "toNumber",
+   "params": "num",
+   "startLine": 206,
+   "endLine": 215,
+   "flowGroup": "shared",
+   "kind": "fn"
+  },
+  {
+   "id": "utils.encrypt",
+   "file": "app/lib/utils.js",
+   "name": "encrypt",
+   "params": "data",
+   "startLine": 250,
+   "endLine": 255,
+   "flowGroup": "shared",
+   "kind": "fn"
+  },
+  {
+   "id": "utils.toCsv",
+   "file": "app/lib/utils.js",
+   "name": "toCsv",
+   "params": "columns, rows",
+   "startLine": 299,
+   "endLine": 302,
+   "flowGroup": "shared",
+   "kind": "fn"
+  },
+  {
+   "id": "utils.format",
+   "file": "app/lib/utils.js",
+   "name": "String.prototype.format",
+   "params": "placeholders",
+   "startLine": 308,
+   "endLine": 315,
+   "flowGroup": "shared",
+   "kind": "fn"
+  },
+  {
+   "id": "settings",
+   "file": "app/settings.js",
+   "name": "settings",
+   "params": "",
+   "startLine": 26,
+   "endLine": 32,
+   "flowGroup": "shared",
+   "kind": "data"
+  },
+  {
+   "id": "announcements",
+   "file": "app/announcements.js",
+   "name": "announcements",
+   "params": "",
+   "startLine": 21,
+   "endLine": 34,
+   "flowGroup": "shared",
+   "kind": "data"
+  },
+  {
+   "id": "constants",
+   "file": "app/constants.js",
+   "name": "constants",
+   "params": "",
+   "startLine": 22,
+   "endLine": 122,
+   "flowGroup": "shared",
+   "kind": "data"
+  },
+  {
+   "id": "strings",
+   "file": "app/strings.js",
+   "name": "strings (excerpt)",
+   "params": "",
+   "startLine": 80,
+   "endLine": 135,
+   "flowGroup": "shared",
+   "kind": "data"
+  },
+  {
+   "id": "errors",
+   "file": "app/lib/errors.js",
+   "name": "errors",
+   "params": "",
+   "startLine": 22,
+   "endLine": 66,
+   "flowGroup": "shared",
+   "kind": "data"
+  },
+  {
+   "id": "commands.register",
+   "file": "app/lib/commands.js",
+   "name": "Commands.register",
+   "params": "cmdName, cmdHelp, cmdScope, cmdPrivilege, cmdType, cmdDefinition",
+   "startLine": 68,
+   "endLine": 91,
+   "flowGroup": "dispatch",
+   "kind": "fn"
+  },
+  {
+   "id": "commands.registerInline",
+   "file": "app/lib/commands.js",
+   "name": "registerInlineCommand",
+   "params": "cmdName, …, cmdDefinition",
+   "startLine": 55,
+   "endLine": 66,
+   "flowGroup": "dispatch",
+   "kind": "fn"
+  },
+  {
+   "id": "commands.rawCall",
+   "file": "app/lib/commands.js",
+   "name": "Commands.rawCall",
+   "params": "msg",
+   "startLine": 140,
+   "endLine": 152,
+   "flowGroup": "dispatch",
+   "kind": "fn"
+  },
+  {
+   "id": "commands.call",
+   "file": "app/lib/commands.js",
+   "name": "Commands.call",
+   "params": "firstWord, msg, words, bot_suffix",
+   "startLine": 154,
+   "endLine": 314,
+   "flowGroup": "dispatch",
+   "kind": "fn"
+  },
+  {
+   "id": "commands.callInline",
+   "file": "app/lib/commands.js",
+   "name": "Commands.callInline",
+   "params": "cmd, context, user, msg, words",
+   "startLine": 316,
+   "endLine": 345,
+   "flowGroup": "dispatch",
+   "kind": "fn"
+  },
+  {
+   "id": "commands.initContext",
+   "file": "app/lib/commands.js",
+   "name": "initContext",
+   "params": "userId, cmd, msg",
+   "startLine": 93,
+   "endLine": 97,
+   "flowGroup": "dispatch",
+   "kind": "fn"
+  },
+  {
+   "id": "commands.retrieveContext",
+   "file": "app/lib/commands.js",
+   "name": "retrieveContext",
+   "params": "userId, msg",
+   "startLine": 99,
+   "endLine": 106,
+   "flowGroup": "dispatch",
+   "kind": "fn"
+  },
+  {
+   "id": "commands.sendError",
+   "file": "app/lib/commands.js",
+   "name": "sendErrorMessage",
+   "params": "msg, err",
+   "startLine": 108,
+   "endLine": 138,
+   "flowGroup": "dispatch",
+   "kind": "fn"
+  },
+  {
+   "id": "ikc.constructor",
+   "file": "app/lib/inline-keyboard-command.js",
+   "name": "InlineKeyboardCommand()",
+   "params": "definition, commandName, parent",
+   "startLine": 31,
+   "endLine": 66,
+   "flowGroup": "inline",
+   "kind": "method"
+  },
+  {
+   "id": "ikc.isAvailableForUser",
+   "file": "app/lib/inline-keyboard-command.js",
+   "name": "isAvailableForUser",
+   "params": "context, user",
+   "startLine": 68,
+   "endLine": 84,
+   "flowGroup": "inline",
+   "kind": "method"
+  },
+  {
+   "id": "ikc.getInlineKeyboard",
+   "file": "app/lib/inline-keyboard-command.js",
+   "name": "getInlineKeyboard",
+   "params": "context, user",
+   "startLine": 86,
+   "endLine": 118,
+   "flowGroup": "inline",
+   "kind": "method"
+  },
+  {
+   "id": "ikc.getChild",
+   "file": "app/lib/inline-keyboard-command.js",
+   "name": "getChild",
+   "params": "name",
+   "startLine": 124,
+   "endLine": 126,
+   "flowGroup": "inline",
+   "kind": "method"
+  },
+  {
+   "id": "ikc.getParent",
+   "file": "app/lib/inline-keyboard-command.js",
+   "name": "getParent",
+   "params": "",
+   "startLine": 128,
+   "endLine": 130,
+   "flowGroup": "inline",
+   "kind": "method"
+  },
+  {
+   "id": "ikc.sendTextAndKeyboard",
+   "file": "app/lib/inline-keyboard-command.js",
+   "name": "sendTextAndKeyboard",
+   "params": "text, context, user, msg",
+   "startLine": 132,
+   "endLine": 147,
+   "flowGroup": "inline",
+   "kind": "method"
+  },
+  {
+   "id": "ikc.onSelect",
+   "file": "app/lib/inline-keyboard-command.js",
+   "name": "onSelect",
+   "params": "context, user, msg, words",
+   "startLine": 149,
+   "endLine": 161,
+   "flowGroup": "inline",
+   "kind": "method"
+  },
+  {
+   "id": "ikc.onText",
+   "file": "app/lib/inline-keyboard-command.js",
+   "name": "onText",
+   "params": "context, user, msg, words",
+   "startLine": 163,
+   "endLine": 186,
+   "flowGroup": "inline",
+   "kind": "method"
+  },
+  {
+   "id": "ikc.onExit",
+   "file": "app/lib/inline-keyboard-command.js",
+   "name": "onExit",
+   "params": "context, user, nextState",
+   "startLine": 188,
+   "endLine": 192,
+   "flowGroup": "inline",
+   "kind": "method"
+  },
+  {
+   "id": "context.constructor",
+   "file": "app/lib/context.js",
+   "name": "Context()",
+   "params": "cmd, msg",
+   "startLine": 30,
+   "endLine": 40,
+   "flowGroup": "output",
+   "kind": "method"
+  },
+  {
+   "id": "context.sendMessage",
+   "file": "app/lib/context.js",
+   "name": "sendMessage",
+   "params": "to_id, text, options",
+   "startLine": 42,
+   "endLine": 50,
+   "flowGroup": "output",
+   "kind": "method"
+  },
+  {
+   "id": "context.editMessage",
+   "file": "app/lib/context.js",
+   "name": "editMessage",
+   "params": "message_id, chat_id, text, options",
+   "startLine": 52,
+   "endLine": 74,
+   "flowGroup": "output",
+   "kind": "method"
+  },
+  {
+   "id": "context.privateReply",
+   "file": "app/lib/context.js",
+   "name": "privateReply",
+   "params": "text",
+   "startLine": 76,
+   "endLine": 84,
+   "flowGroup": "output",
+   "kind": "method"
+  },
+  {
+   "id": "context.privateReplyWithKeyboard",
+   "file": "app/lib/context.js",
+   "name": "privateReplyWithKeyboard",
+   "params": "text, keyboardButtons",
+   "startLine": 86,
+   "endLine": 95,
+   "flowGroup": "output",
+   "kind": "method"
+  },
+  {
+   "id": "context.inlineKeyboardMessage",
+   "file": "app/lib/context.js",
+   "name": "inlineKeyboardMessage",
+   "params": "text, inlineKeyboardButtons",
+   "startLine": 97,
+   "endLine": 106,
+   "flowGroup": "output",
+   "kind": "method"
+  },
+  {
+   "id": "context.inlineKeyboardEdit",
+   "file": "app/lib/context.js",
+   "name": "inlineKeyboardEdit",
+   "params": "text, inlineKeyboardButtons",
+   "startLine": 108,
+   "endLine": 117,
+   "flowGroup": "output",
+   "kind": "method"
+  },
+  {
+   "id": "context.chatReply",
+   "file": "app/lib/context.js",
+   "name": "chatReply",
+   "params": "text",
+   "startLine": 119,
+   "endLine": 121,
+   "flowGroup": "output",
+   "kind": "method"
+  },
+  {
+   "id": "context.photoReply",
+   "file": "app/lib/context.js",
+   "name": "photoReply",
+   "params": "stream, caption",
+   "startLine": 123,
+   "endLine": 127,
+   "flowGroup": "output",
+   "kind": "method"
+  },
+  {
+   "id": "context.privateDocumentReply",
+   "file": "app/lib/context.js",
+   "name": "privateDocumentReply",
+   "params": "buffer, filename, contentType",
+   "startLine": 129,
+   "endLine": 131,
+   "flowGroup": "output",
+   "kind": "method"
+  },
+  {
+   "id": "context.sendMessageObj",
+   "file": "app/lib/context.js",
+   "name": "sendMessageObj",
+   "params": "message",
+   "startLine": 133,
+   "endLine": 144,
+   "flowGroup": "output",
+   "kind": "method"
+  },
+  {
+   "id": "context.state",
+   "file": "app/lib/context.js",
+   "name": "setInlineState … end",
+   "params": "state / key, value / phase",
+   "startLine": 146,
+   "endLine": 182,
+   "flowGroup": "output",
+   "kind": "method"
+  },
+  {
+   "id": "context.isPrivateChat",
+   "file": "app/lib/context.js",
+   "name": "isPrivateChat",
+   "params": "",
+   "startLine": 176,
+   "endLine": 181,
+   "flowGroup": "output",
+   "kind": "method"
+  },
+  {
+   "id": "message.ctors",
+   "file": "app/lib/message.js",
+   "name": "Message constructors",
+   "params": "text, options",
+   "startLine": 35,
+   "endLine": 75,
+   "flowGroup": "output",
+   "kind": "fn"
+  },
+  {
+   "id": "linechart.getLineGraphBuffer",
+   "file": "app/lib/linechart.js",
+   "name": "getLineGraphBuffer",
+   "params": "data, title",
+   "startLine": 70,
+   "endLine": 79,
+   "flowGroup": "output",
+   "kind": "fn"
+  },
+  {
+   "id": "alcomath.getWidmarkFactorForUser",
+   "file": "app/lib/alcomath.js",
+   "name": "getWidmarkFactorForUser",
+   "params": "user",
+   "startLine": 85,
+   "endLine": 91,
+   "flowGroup": "domain",
+   "kind": "fn"
+  },
+  {
+   "id": "alcomath.getUserMetabolismRate",
+   "file": "app/lib/alcomath.js",
+   "name": "getUserMetabolismRate",
+   "params": "",
+   "startLine": 94,
+   "endLine": 96,
+   "flowGroup": "domain",
+   "kind": "fn"
+  },
+  {
+   "id": "alcomath.estimateAbsorbed",
+   "file": "app/lib/alcomath.js",
+   "name": "estimateAbsorbedAlcoholConcentration",
+   "params": "user, milligrams, drinking_period",
+   "startLine": 103,
+   "endLine": 114,
+   "flowGroup": "domain",
+   "kind": "fn"
+  },
+  {
+   "id": "alcomath.estimateUnburned",
+   "file": "app/lib/alcomath.js",
+   "name": "estimateUnburnedAlcohol",
+   "params": "user, ebac",
+   "startLine": 116,
+   "endLine": 126,
+   "flowGroup": "domain",
+   "kind": "fn"
+  },
+  {
+   "id": "alcomath.calculateEBACFromDrinks",
+   "file": "app/lib/alcomath.js",
+   "name": "calculateEBACFromDrinks",
+   "params": "user, drinks",
+   "startLine": 128,
+   "endLine": 187,
+   "flowGroup": "domain",
+   "kind": "fn"
+  },
+  {
+   "id": "alcomath.calculateEBACByHour",
+   "file": "app/lib/alcomath.js",
+   "name": "calculateEBACByHourFromDrinks",
+   "params": "user, drinks, lastNHours, predictNHours",
+   "startLine": 189,
+   "endLine": 230,
+   "flowGroup": "domain",
+   "kind": "fn"
+  },
+  {
+   "id": "alcomath.toStandardDrinks",
+   "file": "app/lib/alcomath.js",
+   "name": "toStandardDrinks",
+   "params": "alcohol_grams, decimals",
+   "startLine": 232,
+   "endLine": 234,
+   "flowGroup": "domain",
+   "kind": "fn"
+  },
+  {
+   "id": "alcomath.isOutOfLimits",
+   "file": "app/lib/alcomath.js",
+   "name": "isAlcoholAmountOutOfLimits",
+   "params": "mg",
+   "startLine": 236,
+   "endLine": 238,
+   "flowGroup": "domain",
+   "kind": "fn"
+  },
+  {
+   "id": "users.isAdmin",
+   "file": "app/db/users.js",
+   "name": "User.isAdmin",
+   "params": "",
+   "startLine": 49,
+   "endLine": 51,
+   "flowGroup": "persistence",
+   "kind": "method"
+  },
+  {
+   "id": "users.drinkBooze",
+   "file": "app/db/users.js",
+   "name": "User.drinkBooze",
+   "params": "amount, description",
+   "startLine": 53,
+   "endLine": 58,
+   "flowGroup": "persistence",
+   "kind": "method"
+  },
+  {
+   "id": "users.getBooze",
+   "file": "app/db/users.js",
+   "name": "User.getBooze",
+   "params": "",
+   "startLine": 60,
+   "endLine": 69,
+   "flowGroup": "persistence",
+   "kind": "method"
+  },
+  {
+   "id": "users.getDrinkSumForXHours",
+   "file": "app/db/users.js",
+   "name": "User.getDrinkSumForXHours",
+   "params": "hours",
+   "startLine": 71,
+   "endLine": 81,
+   "flowGroup": "persistence",
+   "kind": "method"
+  },
+  {
+   "id": "users.undoDrink",
+   "file": "app/db/users.js",
+   "name": "User.undoDrink",
+   "params": "",
+   "startLine": 83,
+   "endLine": 92,
+   "flowGroup": "persistence",
+   "kind": "method"
+  },
+  {
+   "id": "users.getBoozeForLastHours",
+   "file": "app/db/users.js",
+   "name": "User.getBoozeForLastHours",
+   "params": "hours",
+   "startLine": 94,
+   "endLine": 104,
+   "flowGroup": "persistence",
+   "kind": "method"
+  },
+  {
+   "id": "users.joinGroup",
+   "file": "app/db/users.js",
+   "name": "User.joinGroup",
+   "params": "groupId",
+   "startLine": 106,
+   "endLine": 124,
+   "flowGroup": "persistence",
+   "kind": "method"
+  },
+  {
+   "id": "users.leaveGroup",
+   "file": "app/db/users.js",
+   "name": "User.leaveGroup",
+   "params": "groupId",
+   "startLine": 126,
+   "endLine": 144,
+   "flowGroup": "persistence",
+   "kind": "method"
+  },
+  {
+   "id": "users.drinkBoozeReturnEBAC",
+   "file": "app/db/users.js",
+   "name": "User.drinkBoozeReturnEBAC",
+   "params": "amount, description",
+   "startLine": 146,
+   "endLine": 155,
+   "flowGroup": "persistence",
+   "kind": "method"
+  },
+  {
+   "id": "users.drinkBoozeLate",
+   "file": "app/db/users.js",
+   "name": "User.drinkBoozeLate",
+   "params": "drinks, hours",
+   "startLine": 157,
+   "endLine": 179,
+   "flowGroup": "persistence",
+   "kind": "method"
+  },
+  {
+   "id": "users.updateInfo",
+   "file": "app/db/users.js",
+   "name": "User.updateInfo",
+   "params": "username, weight, gender, height, read_terms",
+   "startLine": 181,
+   "endLine": 202,
+   "flowGroup": "persistence",
+   "kind": "method"
+  },
+  {
+   "id": "users.updateReadAnnouncements",
+   "file": "app/db/users.js",
+   "name": "User.updateReadAnnouncements",
+   "params": "count",
+   "startLine": 204,
+   "endLine": 210,
+   "flowGroup": "persistence",
+   "kind": "method"
+  },
+  {
+   "id": "users.updateFields",
+   "file": "app/db/users.js",
+   "name": "User.update{Weight,Height,Gender,Username}",
+   "params": "value",
+   "startLine": 212,
+   "endLine": 230,
+   "flowGroup": "persistence",
+   "kind": "method"
+  },
+  {
+   "id": "users.delete",
+   "file": "app/db/users.js",
+   "name": "User.delete",
+   "params": "",
+   "startLine": 231,
+   "endLine": 237,
+   "flowGroup": "persistence",
+   "kind": "method"
+  },
+  {
+   "id": "users.getLastDrink",
+   "file": "app/db/users.js",
+   "name": "User.getLastDrink",
+   "params": "",
+   "startLine": 239,
+   "endLine": 248,
+   "flowGroup": "persistence",
+   "kind": "method"
+  },
+  {
+   "id": "users.getEBACWithDrinks",
+   "file": "app/db/users.js",
+   "name": "User.getEBACWithDrinksForLastHours",
+   "params": "hours",
+   "startLine": 250,
+   "endLine": 261,
+   "flowGroup": "persistence",
+   "kind": "method"
+  },
+  {
+   "id": "users.getLastNUniqueDrinks",
+   "file": "app/db/users.js",
+   "name": "User.getLastNUniqueDrinks",
+   "params": "n, exclude_description",
+   "startLine": 263,
+   "endLine": 274,
+   "flowGroup": "persistence",
+   "kind": "method"
+  },
+  {
+   "id": "users.getDrinkTimesByUser",
+   "file": "app/db/users.js",
+   "name": "User.getDrinkTimesByUser",
+   "params": "",
+   "startLine": 276,
+   "endLine": 286,
+   "flowGroup": "persistence",
+   "kind": "method"
+  },
+  {
+   "id": "users.new",
+   "file": "app/db/users.js",
+   "name": "users.new",
+   "params": "userId, nick, weight, gender, height, read_terms",
+   "startLine": 291,
+   "endLine": 326,
+   "flowGroup": "persistence",
+   "kind": "fn"
+  },
+  {
+   "id": "users.find",
+   "file": "app/db/users.js",
+   "name": "users.find",
+   "params": "userId",
+   "startLine": 328,
+   "endLine": 355,
+   "flowGroup": "persistence",
+   "kind": "fn"
+  },
+  {
+   "id": "users.getAllData",
+   "file": "app/db/users.js",
+   "name": "users.getAllData",
+   "params": "userId",
+   "startLine": 362,
+   "endLine": 381,
+   "flowGroup": "persistence",
+   "kind": "fn"
+  },
+  {
+   "id": "users.getUsernameFromMsg",
+   "file": "app/db/users.js",
+   "name": "users.getUsernameFromMsg",
+   "params": "msg",
+   "startLine": 383,
+   "endLine": 392,
+   "flowGroup": "persistence",
+   "kind": "fn"
+  },
+  {
+   "id": "groups.Group",
+   "file": "app/db/groups.js",
+   "name": "Group()",
+   "params": "groupId",
+   "startLine": 37,
+   "endLine": 39,
+   "flowGroup": "persistence",
+   "kind": "fn"
+  },
+  {
+   "id": "groups.getDrinkSumsByUser",
+   "file": "app/db/groups.js",
+   "name": "Group.getDrinkSumsByUser",
+   "params": "hours",
+   "startLine": 62,
+   "endLine": 84,
+   "flowGroup": "persistence",
+   "kind": "method"
+  },
+  {
+   "id": "groups.getDrinkTimesByUser",
+   "file": "app/db/groups.js",
+   "name": "Group.getDrinkTimesByUser",
+   "params": "",
+   "startLine": 86,
+   "endLine": 96,
+   "flowGroup": "persistence",
+   "kind": "method"
+  },
+  {
+   "id": "groups.getStandardDrinksListing",
+   "file": "app/db/groups.js",
+   "name": "Group.getStandardDrinksListing",
+   "params": "",
+   "startLine": 98,
+   "endLine": 138,
+   "flowGroup": "persistence",
+   "kind": "method"
+  },
+  {
+   "id": "groups.getPermillesListing",
+   "file": "app/db/groups.js",
+   "name": "Group.getPermillesListing",
+   "params": "",
+   "startLine": 140,
+   "endLine": 180,
+   "flowGroup": "persistence",
+   "kind": "method"
+  },
+  {
+   "id": "stats.getGlobalStats",
+   "file": "app/db/stats.js",
+   "name": "stats.getGlobalStats",
+   "params": "",
+   "startLine": 34,
+   "endLine": 73,
+   "flowGroup": "persistence",
+   "kind": "fn"
+  },
+  {
+   "id": "stats.getGroupStats",
+   "file": "app/db/stats.js",
+   "name": "stats.getGroupStats",
+   "params": "group, hours",
+   "startLine": 75,
+   "endLine": 101,
+   "flowGroup": "persistence",
+   "kind": "fn"
+  },
+  {
+   "id": "stats.getGroupAlcoholSumStats",
+   "file": "app/db/stats.js",
+   "name": "stats.getGroupAlcoholSumStats",
+   "params": "group, hours",
+   "startLine": 103,
+   "endLine": 129,
+   "flowGroup": "persistence",
+   "kind": "fn"
+  },
+  {
+   "id": "kalja033",
+   "file": "app/commands/kalja033.js",
+   "name": "/kalja033",
+   "params": "context, msg, words, user",
+   "startLine": 31,
+   "endLine": 44,
+   "flowGroup": "cmd_drink",
+   "kind": "handler"
+  },
+  {
+   "id": "kalja05",
+   "file": "app/commands/kalja05.js",
+   "name": "/kalja05",
+   "params": "context, msg, words, user",
+   "startLine": 29,
+   "endLine": 43,
+   "flowGroup": "cmd_drink",
+   "kind": "handler"
+  },
+  {
+   "id": "juoma.saveDrink",
+   "file": "app/commands/juoma.js",
+   "name": "saveDrink",
+   "params": "context, user, milligrams, drinkName",
+   "startLine": 59,
+   "endLine": 72,
+   "flowGroup": "cmd_drink",
+   "kind": "fn"
+  },
+  {
+   "id": "juoma.phases",
+   "file": "app/commands/juoma.js",
+   "name": "/juoma phases",
+   "params": "start → miedot | tiukat | oma → END",
+   "startLine": 74,
+   "endLine": 193,
+   "flowGroup": "cmd_drink",
+   "kind": "phases"
+  },
+  {
+   "id": "jalkikellotus.phases",
+   "file": "app/commands/jalkikellotus.js",
+   "name": "/jalkikellotus phases",
+   "params": "start → inputDrinks → END",
+   "startLine": 34,
+   "endLine": 136,
+   "flowGroup": "cmd_drink",
+   "kind": "phases"
+  },
+  {
+   "id": "laatta.phases",
+   "file": "app/commands/laatta.js",
+   "name": "/laatta phases",
+   "params": "start → END",
+   "startLine": 30,
+   "endLine": 66,
+   "flowGroup": "cmd_drink",
+   "kind": "phases"
+  },
+  {
+   "id": "start.root",
+   "file": "app/commands/start.js",
+   "name": "/start root menu",
+   "params": "_onSelect, _formHeader",
+   "startLine": 50,
+   "endLine": 95,
+   "flowGroup": "cmd_start",
+   "kind": "menu"
+  },
+  {
+   "id": "start.makeDrinksString",
+   "file": "app/commands/start.js",
+   "name": "makeDrinksString",
+   "params": "drinks",
+   "startLine": 32,
+   "endLine": 48,
+   "flowGroup": "cmd_start",
+   "kind": "fn"
+  },
+  {
+   "id": "start.juo",
+   "file": "app/commands/start/juo.js",
+   "name": "Juo (drink) submenu",
+   "params": "menu tree",
+   "startLine": 70,
+   "endLine": 367,
+   "flowGroup": "cmd_start",
+   "kind": "menu"
+  },
+  {
+   "id": "start.juo.makeDrinkOption",
+   "file": "app/commands/start/juo.js",
+   "name": "makeDrinkOption",
+   "params": "drink_amount, drink_name",
+   "startLine": 32,
+   "endLine": 50,
+   "flowGroup": "cmd_start",
+   "kind": "fn"
+  },
+  {
+   "id": "start.juo.makeDrinksListString",
+   "file": "app/commands/start/juo.js",
+   "name": "makeDrinksListString",
+   "params": "drinks",
+   "startLine": 52,
+   "endLine": 68,
+   "flowGroup": "cmd_start",
+   "kind": "fn"
+  },
+  {
+   "id": "start.tilastoja",
+   "file": "app/commands/start/tilastoja.js",
+   "name": "Tilastoja (stats) submenu",
+   "params": "menu tree",
+   "startLine": 93,
+   "endLine": 133,
+   "flowGroup": "cmd_start",
+   "kind": "menu"
+  },
+  {
+   "id": "start.tilastoja.statsForDays",
+   "file": "app/commands/start/tilastoja.js",
+   "name": "statsForDays",
+   "params": "context, user, msg, words, days",
+   "startLine": 31,
+   "endLine": 47,
+   "flowGroup": "cmd_start",
+   "kind": "fn"
+  },
+  {
+   "id": "start.tilastoja.makeSubMenu",
+   "file": "app/commands/start/tilastoja.js",
+   "name": "makeSubMenuStatsFunction",
+   "params": "days",
+   "startLine": 49,
+   "endLine": 67,
+   "flowGroup": "cmd_start",
+   "kind": "fn"
+  },
+  {
+   "id": "start.asetukset",
+   "file": "app/commands/start/asetukset.js",
+   "name": "Asetukset (settings) submenu",
+   "params": "menu tree",
+   "startLine": 31,
+   "endLine": 165,
+   "flowGroup": "cmd_start",
+   "kind": "menu"
+  },
+  {
+   "id": "start.luo_tunnus",
+   "file": "app/commands/start/luo_tunnus.js",
+   "name": "Luo tunnus (sign up) submenu",
+   "params": "menu tree",
+   "startLine": 31,
+   "endLine": 100,
+   "flowGroup": "cmd_start",
+   "kind": "menu"
+  },
+  {
+   "id": "start.help",
+   "file": "app/commands/start/help.js",
+   "name": "Help submenu",
+   "params": "menu tree",
+   "startLine": 31,
+   "endLine": 61,
+   "flowGroup": "cmd_start",
+   "kind": "menu"
+  },
+  {
+   "id": "promillet",
+   "file": "app/commands/promillet.js",
+   "name": "/promillet",
+   "params": "context, msg, words, user",
+   "startLine": 59,
+   "endLine": 102,
+   "flowGroup": "cmd_status",
+   "kind": "handler"
+  },
+  {
+   "id": "promillet.makeDrinksString",
+   "file": "app/commands/promillet.js",
+   "name": "makeDrinksString",
+   "params": "drinks",
+   "startLine": 35,
+   "endLine": 57,
+   "flowGroup": "cmd_status",
+   "kind": "fn"
+  },
+  {
+   "id": "annokset",
+   "file": "app/commands/annokset.js",
+   "name": "/annokset",
+   "params": "context, msg, words, user",
+   "startLine": 60,
+   "endLine": 103,
+   "flowGroup": "cmd_status",
+   "kind": "handler"
+  },
+  {
+   "id": "kuvaaja",
+   "file": "app/commands/kuvaaja.js",
+   "name": "/kuvaaja",
+   "params": "context, msg, words, user",
+   "startLine": 34,
+   "endLine": 136,
+   "flowGroup": "cmd_status",
+   "kind": "handler"
+  },
+  {
+   "id": "whoami",
+   "file": "app/commands/whoami.js",
+   "name": "/whoami",
+   "params": "context, msg, words, user",
+   "startLine": 28,
+   "endLine": 39,
+   "flowGroup": "cmd_status",
+   "kind": "handler"
+  },
+  {
+   "id": "stats",
+   "file": "app/commands/stats.js",
+   "name": "/stats",
+   "params": "context, msg, words, user",
+   "startLine": 31,
+   "endLine": 79,
+   "flowGroup": "cmd_stats",
+   "kind": "handler"
+  },
+  {
+   "id": "stats2",
+   "file": "app/commands/stats2.js",
+   "name": "/stats2",
+   "params": "context, msg, words, user",
+   "startLine": 32,
+   "endLine": 83,
+   "flowGroup": "cmd_stats",
+   "kind": "handler"
+  },
+  {
+   "id": "admin_stats",
+   "file": "app/commands/admin_stats.js",
+   "name": "/admin_stats",
+   "params": "context, msg, words, user",
+   "startLine": 29,
+   "endLine": 47,
+   "flowGroup": "cmd_stats",
+   "kind": "handler"
+  },
+  {
+   "id": "tunnus.phases",
+   "file": "app/commands/tunnus.js",
+   "name": "/tunnus phases",
+   "params": "start → height → gender → terms",
+   "startLine": 34,
+   "endLine": 140,
+   "flowGroup": "cmd_account",
+   "kind": "phases"
+  },
+  {
+   "id": "moro",
+   "file": "app/commands/moro.js",
+   "name": "/moro",
+   "params": "context, msg, words, user",
+   "startLine": 27,
+   "endLine": 36,
+   "flowGroup": "cmd_account",
+   "kind": "handler"
+  },
+  {
+   "id": "poistu",
+   "file": "app/commands/poistu.js",
+   "name": "/poistu",
+   "params": "context, msg, words, user",
+   "startLine": 27,
+   "endLine": 36,
+   "flowGroup": "cmd_account",
+   "kind": "handler"
+  },
+  {
+   "id": "data",
+   "file": "app/commands/data.js",
+   "name": "/data",
+   "params": "context, msg",
+   "startLine": 32,
+   "endLine": 55,
+   "flowGroup": "cmd_account",
+   "kind": "handler"
+  },
+  {
+   "id": "terms",
+   "file": "app/commands/terms.js",
+   "name": "/terms",
+   "params": "context, msg, words",
+   "startLine": 28,
+   "endLine": 32,
+   "flowGroup": "cmd_account",
+   "kind": "handler"
+  },
+  {
+   "id": "about",
+   "file": "app/commands/about.js",
+   "name": "/about",
+   "params": "context, msg, words",
+   "startLine": 28,
+   "endLine": 32,
+   "flowGroup": "cmd_info",
+   "kind": "handler"
+  },
+  {
+   "id": "help",
+   "file": "app/commands/help.js",
+   "name": "/help",
+   "params": "context, msg, words",
+   "startLine": 28,
+   "endLine": 37,
+   "flowGroup": "cmd_info",
+   "kind": "handler"
+  },
+  {
+   "id": "komennot",
+   "file": "app/commands/komennot.js",
+   "name": "/komennot",
+   "params": "context, msg, words",
+   "startLine": 28,
+   "endLine": 37,
+   "flowGroup": "cmd_info",
+   "kind": "handler"
+  },
+  {
+   "id": "admin_loglevel",
+   "file": "app/commands/admin_loglevel.js",
+   "name": "/admin_loglevel",
+   "params": "context, msg, words, user",
+   "startLine": 28,
+   "endLine": 48,
+   "flowGroup": "cmd_info",
+   "kind": "handler"
+  }
+ ],
+ "calls": [
+  {
+   "from": "telegram",
+   "to": "web.webhook",
+   "line": 0
+  },
+  {
+   "from": "telegram",
+   "to": "init.onMessage",
+   "line": 0
+  },
+  {
+   "from": "telegram",
+   "to": "init.onCallback",
+   "line": 0
+  },
+  {
+   "from": "index.boot",
+   "to": "web.webhook",
+   "line": 54
+  },
+  {
+   "from": "index.boot",
+   "to": "init.main",
+   "line": 58
+  },
+  {
+   "from": "web.webhook",
+   "to": "telegram",
+   "line": 49
+  },
+  {
+   "from": "init.main",
+   "to": "init.onMessage",
+   "line": 46
+  },
+  {
+   "from": "init.main",
+   "to": "init.onCallback",
+   "line": 54
+  },
+  {
+   "from": "init.onMessage",
+   "to": "utils.attachMethods",
+   "line": 49
+  },
+  {
+   "from": "init.onMessage",
+   "to": "commands.rawCall",
+   "line": 51
+  },
+  {
+   "from": "init.onCallback",
+   "to": "utils.attachMethods",
+   "line": 56
+  },
+  {
+   "from": "init.onCallback",
+   "to": "commands.call",
+   "line": 57
+  },
+  {
+   "from": "utils.attachMethods",
+   "to": "utils.sendPrivate",
+   "line": 166
+  },
+  {
+   "from": "utils.attachMethods",
+   "to": "utils.sendChat",
+   "line": 167
+  },
+  {
+   "from": "utils.attachMethods",
+   "to": "utils.sendTo",
+   "line": 168
+  },
+  {
+   "from": "utils.attachMethods",
+   "to": "utils.sendPhoto",
+   "line": 169
+  },
+  {
+   "from": "utils.attachMethods",
+   "to": "utils.sendDocument",
+   "line": 170
+  },
+  {
+   "from": "utils.attachMethods",
+   "to": "utils.editText",
+   "line": 171
+  },
+  {
+   "from": "utils.sendPrivate",
+   "to": "telegram",
+   "line": 40
+  },
+  {
+   "from": "utils.sendChat",
+   "to": "telegram",
+   "line": 56
+  },
+  {
+   "from": "utils.sendTo",
+   "to": "telegram",
+   "line": 72
+  },
+  {
+   "from": "utils.sendPhoto",
+   "to": "telegram",
+   "line": 88
+  },
+  {
+   "from": "utils.sendDocument",
+   "to": "telegram",
+   "line": 104
+  },
+  {
+   "from": "utils.editText",
+   "to": "telegram",
+   "line": 120
+  },
+  {
+   "from": "commands.register",
+   "to": "commands.registerInline",
+   "line": 70
+  },
+  {
+   "from": "commands.registerInline",
+   "to": "ikc.constructor",
+   "line": 56
+  },
+  {
+   "from": "commands.rawCall",
+   "to": "commands.call",
+   "line": 151
+  },
+  {
+   "from": "commands.call",
+   "to": "commands.retrieveContext",
+   "line": 162
+  },
+  {
+   "from": "commands.call",
+   "to": "commands.initContext",
+   "line": 166
+  },
+  {
+   "from": "commands.call",
+   "to": "utils.hookNewRelic",
+   "line": 213
+  },
+  {
+   "from": "commands.call",
+   "to": "context.isPrivateChat",
+   "line": 215
+  },
+  {
+   "from": "commands.call",
+   "to": "users.find",
+   "line": 228
+  },
+  {
+   "from": "commands.call",
+   "to": "users.isAdmin",
+   "line": 243
+  },
+  {
+   "from": "commands.call",
+   "to": "users.updateReadAnnouncements",
+   "line": 264
+  },
+  {
+   "from": "commands.call",
+   "to": "commands.callInline",
+   "line": 271
+  },
+  {
+   "from": "commands.call",
+   "to": "context.sendMessageObj",
+   "line": 280
+  },
+  {
+   "from": "commands.call",
+   "to": "commands.sendError",
+   "line": 312
+  },
+  {
+   "from": "commands.call",
+   "to": "kalja033",
+   "line": 274
+  },
+  {
+   "from": "commands.call",
+   "to": "kalja05",
+   "line": 274
+  },
+  {
+   "from": "commands.call",
+   "to": "promillet",
+   "line": 274
+  },
+  {
+   "from": "commands.call",
+   "to": "annokset",
+   "line": 274
+  },
+  {
+   "from": "commands.call",
+   "to": "kuvaaja",
+   "line": 274
+  },
+  {
+   "from": "commands.call",
+   "to": "whoami",
+   "line": 274
+  },
+  {
+   "from": "commands.call",
+   "to": "stats",
+   "line": 274
+  },
+  {
+   "from": "commands.call",
+   "to": "stats2",
+   "line": 274
+  },
+  {
+   "from": "commands.call",
+   "to": "admin_stats",
+   "line": 274
+  },
+  {
+   "from": "commands.call",
+   "to": "moro",
+   "line": 274
+  },
+  {
+   "from": "commands.call",
+   "to": "poistu",
+   "line": 274
+  },
+  {
+   "from": "commands.call",
+   "to": "data",
+   "line": 274
+  },
+  {
+   "from": "commands.call",
+   "to": "terms",
+   "line": 274
+  },
+  {
+   "from": "commands.call",
+   "to": "about",
+   "line": 274
+  },
+  {
+   "from": "commands.call",
+   "to": "help",
+   "line": 274
+  },
+  {
+   "from": "commands.call",
+   "to": "komennot",
+   "line": 274
+  },
+  {
+   "from": "commands.call",
+   "to": "admin_loglevel",
+   "line": 274
+  },
+  {
+   "from": "commands.call",
+   "to": "juoma.phases",
+   "line": 290
+  },
+  {
+   "from": "commands.call",
+   "to": "jalkikellotus.phases",
+   "line": 290
+  },
+  {
+   "from": "commands.call",
+   "to": "laatta.phases",
+   "line": 290
+  },
+  {
+   "from": "commands.call",
+   "to": "tunnus.phases",
+   "line": 290
+  },
+  {
+   "from": "commands.initContext",
+   "to": "context.constructor",
+   "line": 94
+  },
+  {
+   "from": "commands.sendError",
+   "to": "utils.sendPrivate",
+   "line": 111
+  },
+  {
+   "from": "commands.callInline",
+   "to": "ikc.onSelect",
+   "line": 320
+  },
+  {
+   "from": "commands.callInline",
+   "to": "ikc.getParent",
+   "line": 328
+  },
+  {
+   "from": "commands.callInline",
+   "to": "ikc.getChild",
+   "line": 329
+  },
+  {
+   "from": "commands.callInline",
+   "to": "ikc.isAvailableForUser",
+   "line": 333
+  },
+  {
+   "from": "commands.callInline",
+   "to": "ikc.onExit",
+   "line": 337
+  },
+  {
+   "from": "commands.callInline",
+   "to": "ikc.onText",
+   "line": 343
+  },
+  {
+   "from": "ikc.constructor",
+   "to": "ikc.constructor",
+   "line": 61
+  },
+  {
+   "from": "ikc.isAvailableForUser",
+   "to": "users.isAdmin",
+   "line": 70
+  },
+  {
+   "from": "ikc.getInlineKeyboard",
+   "to": "ikc.isAvailableForUser",
+   "line": 91
+  },
+  {
+   "from": "ikc.sendTextAndKeyboard",
+   "to": "ikc.getInlineKeyboard",
+   "line": 139
+  },
+  {
+   "from": "ikc.sendTextAndKeyboard",
+   "to": "context.inlineKeyboardEdit",
+   "line": 139
+  },
+  {
+   "from": "ikc.sendTextAndKeyboard",
+   "to": "context.inlineKeyboardMessage",
+   "line": 141
+  },
+  {
+   "from": "ikc.onSelect",
+   "to": "context.state",
+   "line": 151
+  },
+  {
+   "from": "ikc.onSelect",
+   "to": "ikc.sendTextAndKeyboard",
+   "line": 156
+  },
+  {
+   "from": "ikc.onSelect",
+   "to": "start.root",
+   "line": 155
+  },
+  {
+   "from": "ikc.onSelect",
+   "to": "start.asetukset",
+   "line": 155
+  },
+  {
+   "from": "ikc.onSelect",
+   "to": "start.tilastoja",
+   "line": 155
+  },
+  {
+   "from": "ikc.onSelect",
+   "to": "start.juo",
+   "line": 155
+  },
+  {
+   "from": "ikc.onSelect",
+   "to": "start.help",
+   "line": 156
+  },
+  {
+   "from": "ikc.onText",
+   "to": "start.luo_tunnus",
+   "line": 166
+  },
+  {
+   "from": "ikc.onText",
+   "to": "start.juo",
+   "line": 166
+  },
+  {
+   "from": "ikc.onText",
+   "to": "context.privateReplyWithKeyboard",
+   "line": 181
+  },
+  {
+   "from": "ikc.onExit",
+   "to": "start.luo_tunnus",
+   "line": 189
+  },
+  {
+   "from": "context.sendMessage",
+   "to": "utils.sendTo",
+   "line": 49
+  },
+  {
+   "from": "context.editMessage",
+   "to": "utils.editText",
+   "line": 73
+  },
+  {
+   "from": "context.privateReply",
+   "to": "context.sendMessage",
+   "line": 83
+  },
+  {
+   "from": "context.privateReplyWithKeyboard",
+   "to": "context.sendMessage",
+   "line": 94
+  },
+  {
+   "from": "context.inlineKeyboardMessage",
+   "to": "context.sendMessage",
+   "line": 105
+  },
+  {
+   "from": "context.inlineKeyboardEdit",
+   "to": "context.editMessage",
+   "line": 116
+  },
+  {
+   "from": "context.chatReply",
+   "to": "utils.sendTo",
+   "line": 120
+  },
+  {
+   "from": "context.photoReply",
+   "to": "utils.sendPhoto",
+   "line": 124
+  },
+  {
+   "from": "context.privateDocumentReply",
+   "to": "utils.sendDocument",
+   "line": 130
+  },
+  {
+   "from": "context.sendMessageObj",
+   "to": "utils.sendPhoto",
+   "line": 139
+  },
+  {
+   "from": "context.sendMessageObj",
+   "to": "utils.sendTo",
+   "line": 133
+  },
+  {
+   "from": "alcomath.estimateAbsorbed",
+   "to": "alcomath.getWidmarkFactorForUser",
+   "line": 106
+  },
+  {
+   "from": "alcomath.calculateEBACFromDrinks",
+   "to": "alcomath.getUserMetabolismRate",
+   "line": 131
+  },
+  {
+   "from": "alcomath.calculateEBACFromDrinks",
+   "to": "alcomath.estimateAbsorbed",
+   "line": 157
+  },
+  {
+   "from": "alcomath.calculateEBACFromDrinks",
+   "to": "alcomath.estimateUnburned",
+   "line": 184
+  },
+  {
+   "from": "alcomath.calculateEBACByHour",
+   "to": "alcomath.getUserMetabolismRate",
+   "line": 192
+  },
+  {
+   "from": "alcomath.calculateEBACByHour",
+   "to": "alcomath.estimateAbsorbed",
+   "line": 210
+  },
+  {
+   "from": "users.drinkBoozeReturnEBAC",
+   "to": "users.drinkBooze",
+   "line": 149
+  },
+  {
+   "from": "users.drinkBoozeReturnEBAC",
+   "to": "users.getBooze",
+   "line": 150
+  },
+  {
+   "from": "users.drinkBoozeReturnEBAC",
+   "to": "alcomath.calculateEBACFromDrinks",
+   "line": 152
+  },
+  {
+   "from": "users.getEBACWithDrinks",
+   "to": "users.getBooze",
+   "line": 252
+  },
+  {
+   "from": "users.getEBACWithDrinks",
+   "to": "alcomath.calculateEBACFromDrinks",
+   "line": 255
+  },
+  {
+   "from": "groups.getStandardDrinksListing",
+   "to": "groups.getDrinkSumsByUser",
+   "line": 102
+  },
+  {
+   "from": "groups.getPermillesListing",
+   "to": "alcomath.calculateEBACFromDrinks",
+   "line": 160
+  },
+  {
+   "from": "kalja033",
+   "to": "users.drinkBoozeReturnEBAC",
+   "line": 32
+  },
+  {
+   "from": "kalja033",
+   "to": "context.privateReply",
+   "line": 42
+  },
+  {
+   "from": "kalja05",
+   "to": "users.drinkBoozeReturnEBAC",
+   "line": 30
+  },
+  {
+   "from": "kalja05",
+   "to": "context.privateReply",
+   "line": 41
+  },
+  {
+   "from": "juoma.saveDrink",
+   "to": "users.drinkBoozeReturnEBAC",
+   "line": 60
+  },
+  {
+   "from": "juoma.saveDrink",
+   "to": "context.privateReply",
+   "line": 70
+  },
+  {
+   "from": "juoma.phases",
+   "to": "juoma.saveDrink",
+   "line": 116
+  },
+  {
+   "from": "juoma.phases",
+   "to": "message.ctors",
+   "line": 76
+  },
+  {
+   "from": "juoma.phases",
+   "to": "alcomath.isOutOfLimits",
+   "line": 182
+  },
+  {
+   "from": "jalkikellotus.phases",
+   "to": "message.ctors",
+   "line": 36
+  },
+  {
+   "from": "jalkikellotus.phases",
+   "to": "alcomath.isOutOfLimits",
+   "line": 80
+  },
+  {
+   "from": "jalkikellotus.phases",
+   "to": "users.drinkBoozeLate",
+   "line": 117
+  },
+  {
+   "from": "jalkikellotus.phases",
+   "to": "context.privateReply",
+   "line": 72
+  },
+  {
+   "from": "laatta.phases",
+   "to": "message.ctors",
+   "line": 32
+  },
+  {
+   "from": "laatta.phases",
+   "to": "users.getBooze",
+   "line": 46
+  },
+  {
+   "from": "laatta.phases",
+   "to": "alcomath.calculateEBACFromDrinks",
+   "line": 48
+  },
+  {
+   "from": "laatta.phases",
+   "to": "context.privateReply",
+   "line": 51
+  },
+  {
+   "from": "start.root",
+   "to": "users.getEBACWithDrinks",
+   "line": 53
+  },
+  {
+   "from": "start.root",
+   "to": "start.makeDrinksString",
+   "line": 60
+  },
+  {
+   "from": "start.root",
+   "to": "alcomath.toStandardDrinks",
+   "line": 65
+  },
+  {
+   "from": "start.juo",
+   "to": "start.juo.makeDrinkOption",
+   "line": 100
+  },
+  {
+   "from": "start.juo",
+   "to": "start.juo.makeDrinksListString",
+   "line": 87
+  },
+  {
+   "from": "start.juo",
+   "to": "users.getLastNUniqueDrinks",
+   "line": 72
+  },
+  {
+   "from": "start.juo",
+   "to": "users.getEBACWithDrinks",
+   "line": 82
+  },
+  {
+   "from": "start.juo",
+   "to": "alcomath.isOutOfLimits",
+   "line": 154
+  },
+  {
+   "from": "start.juo",
+   "to": "users.drinkBoozeLate",
+   "line": 247
+  },
+  {
+   "from": "start.juo",
+   "to": "users.getLastDrink",
+   "line": 279
+  },
+  {
+   "from": "start.juo",
+   "to": "users.undoDrink",
+   "line": 301
+  },
+  {
+   "from": "start.juo",
+   "to": "alcomath.calculateEBACFromDrinks",
+   "line": 304
+  },
+  {
+   "from": "start.juo.makeDrinkOption",
+   "to": "users.drinkBoozeReturnEBAC",
+   "line": 36
+  },
+  {
+   "from": "start.tilastoja",
+   "to": "start.tilastoja.makeSubMenu",
+   "line": 108
+  },
+  {
+   "from": "start.tilastoja",
+   "to": "start.tilastoja.statsForDays",
+   "line": 100
+  },
+  {
+   "from": "start.tilastoja",
+   "to": "users.getBoozeForLastHours",
+   "line": 126
+  },
+  {
+   "from": "start.tilastoja.makeSubMenu",
+   "to": "users.getDrinkSumForXHours",
+   "line": 51
+  },
+  {
+   "from": "start.tilastoja.statsForDays",
+   "to": "users.getDrinkSumForXHours",
+   "line": 32
+  },
+  {
+   "from": "start.asetukset",
+   "to": "users.updateFields",
+   "line": 68
+  },
+  {
+   "from": "start.asetukset",
+   "to": "context.state",
+   "line": 104
+  },
+  {
+   "from": "start.asetukset",
+   "to": "users.getUsernameFromMsg",
+   "line": 125
+  },
+  {
+   "from": "start.asetukset",
+   "to": "users.delete",
+   "line": 152
+  },
+  {
+   "from": "start.luo_tunnus",
+   "to": "users.getUsernameFromMsg",
+   "line": 36
+  },
+  {
+   "from": "start.luo_tunnus",
+   "to": "users.updateInfo",
+   "line": 82
+  },
+  {
+   "from": "start.luo_tunnus",
+   "to": "users.new",
+   "line": 86
+  },
+  {
+   "from": "start.luo_tunnus",
+   "to": "context.state",
+   "line": 42
+  },
+  {
+   "from": "promillet",
+   "to": "users.getBooze",
+   "line": 61
+  },
+  {
+   "from": "promillet",
+   "to": "users.getBoozeForLastHours",
+   "line": 61
+  },
+  {
+   "from": "promillet",
+   "to": "alcomath.calculateEBACFromDrinks",
+   "line": 64
+  },
+  {
+   "from": "promillet",
+   "to": "alcomath.getUserMetabolismRate",
+   "line": 68
+  },
+  {
+   "from": "promillet",
+   "to": "promillet.makeDrinksString",
+   "line": 79
+  },
+  {
+   "from": "promillet",
+   "to": "context.privateReply",
+   "line": 82
+  },
+  {
+   "from": "promillet",
+   "to": "groups.Group",
+   "line": 85
+  },
+  {
+   "from": "promillet",
+   "to": "groups.getPermillesListing",
+   "line": 86
+  },
+  {
+   "from": "promillet",
+   "to": "context.chatReply",
+   "line": 99
+  },
+  {
+   "from": "annokset",
+   "to": "users.getBooze",
+   "line": 63
+  },
+  {
+   "from": "annokset",
+   "to": "alcomath.calculateEBACFromDrinks",
+   "line": 66
+  },
+  {
+   "from": "annokset",
+   "to": "context.privateReply",
+   "line": 83
+  },
+  {
+   "from": "annokset",
+   "to": "groups.getStandardDrinksListing",
+   "line": 87
+  },
+  {
+   "from": "annokset",
+   "to": "context.chatReply",
+   "line": 100
+  },
+  {
+   "from": "kuvaaja",
+   "to": "context.isPrivateChat",
+   "line": 43
+  },
+  {
+   "from": "kuvaaja",
+   "to": "groups.getDrinkTimesByUser",
+   "line": 45
+  },
+  {
+   "from": "kuvaaja",
+   "to": "users.getDrinkTimesByUser",
+   "line": 44
+  },
+  {
+   "from": "kuvaaja",
+   "to": "alcomath.calculateEBACByHour",
+   "line": 65
+  },
+  {
+   "from": "kuvaaja",
+   "to": "linechart.getLineGraphBuffer",
+   "line": 127
+  },
+  {
+   "from": "kuvaaja",
+   "to": "context.photoReply",
+   "line": 135
+  },
+  {
+   "from": "whoami",
+   "to": "context.privateReply",
+   "line": 29
+  },
+  {
+   "from": "stats",
+   "to": "context.isPrivateChat",
+   "line": 33
+  },
+  {
+   "from": "stats",
+   "to": "users.getDrinkSumForXHours",
+   "line": 34
+  },
+  {
+   "from": "stats",
+   "to": "stats.getGroupStats",
+   "line": 54
+  },
+  {
+   "from": "stats",
+   "to": "context.chatReply",
+   "line": 67
+  },
+  {
+   "from": "stats2",
+   "to": "context.isPrivateChat",
+   "line": 34
+  },
+  {
+   "from": "stats2",
+   "to": "users.getDrinkSumForXHours",
+   "line": 35
+  },
+  {
+   "from": "stats2",
+   "to": "stats.getGroupAlcoholSumStats",
+   "line": 55
+  },
+  {
+   "from": "stats2",
+   "to": "alcomath.toStandardDrinks",
+   "line": 60
+  },
+  {
+   "from": "stats2",
+   "to": "context.chatReply",
+   "line": 71
+  },
+  {
+   "from": "admin_stats",
+   "to": "stats.getGlobalStats",
+   "line": 30
+  },
+  {
+   "from": "admin_stats",
+   "to": "context.privateReply",
+   "line": 34
+  },
+  {
+   "from": "tunnus.phases",
+   "to": "message.ctors",
+   "line": 36
+  },
+  {
+   "from": "tunnus.phases",
+   "to": "users.updateInfo",
+   "line": 122
+  },
+  {
+   "from": "tunnus.phases",
+   "to": "users.new",
+   "line": 126
+  },
+  {
+   "from": "tunnus.phases",
+   "to": "context.privateReply",
+   "line": 112
+  },
+  {
+   "from": "moro",
+   "to": "users.joinGroup",
+   "line": 28
+  },
+  {
+   "from": "moro",
+   "to": "context.chatReply",
+   "line": 30
+  },
+  {
+   "from": "poistu",
+   "to": "users.leaveGroup",
+   "line": 28
+  },
+  {
+   "from": "poistu",
+   "to": "context.chatReply",
+   "line": 30
+  },
+  {
+   "from": "data",
+   "to": "users.getAllData",
+   "line": 34
+  },
+  {
+   "from": "data",
+   "to": "context.privateDocumentReply",
+   "line": 46
+  },
+  {
+   "from": "admin_loglevel",
+   "to": "context.privateReply",
+   "line": 42
+  }
+ ],
+ "links": [
+  {
+   "from": "index.boot",
+   "to": "web.webhook",
+   "line": 54,
+   "col": 22,
+   "len": 3
+  },
+  {
+   "from": "index.boot",
+   "to": "init.main",
+   "line": 58,
+   "col": 25,
+   "len": 3
+  },
+  {
+   "from": "init.main",
+   "to": "init.onMessage",
+   "line": 46,
+   "col": 10,
+   "len": 7
+  },
+  {
+   "from": "init.main",
+   "to": "init.onCallback",
+   "line": 54,
+   "col": 10,
+   "len": 14
+  },
+  {
+   "from": "init.onMessage",
+   "to": "utils.attachMethods",
+   "line": 49,
+   "col": 10,
+   "len": 13
+  },
+  {
+   "from": "init.onMessage",
+   "to": "commands.rawCall",
+   "line": 51,
+   "col": 13,
+   "len": 7
+  },
+  {
+   "from": "init.onCallback",
+   "to": "utils.attachMethods",
+   "line": 56,
+   "col": 10,
+   "len": 13
+  },
+  {
+   "from": "init.onCallback",
+   "to": "commands.call",
+   "line": 57,
+   "col": 13,
+   "len": 4
+  },
+  {
+   "from": "utils.attachMethods",
+   "to": "utils.sendPrivate",
+   "line": 166,
+   "col": 27,
+   "len": 28
+  },
+  {
+   "from": "utils.attachMethods",
+   "to": "utils.sendChat",
+   "line": 167,
+   "col": 24,
+   "len": 25
+  },
+  {
+   "from": "utils.attachMethods",
+   "to": "utils.sendTo",
+   "line": 168,
+   "col": 20,
+   "len": 23
+  },
+  {
+   "from": "utils.attachMethods",
+   "to": "utils.sendPhoto",
+   "line": 169,
+   "col": 18,
+   "len": 23
+  },
+  {
+   "from": "utils.attachMethods",
+   "to": "utils.sendDocument",
+   "line": 170,
+   "col": 21,
+   "len": 26
+  },
+  {
+   "from": "utils.attachMethods",
+   "to": "utils.editText",
+   "line": 171,
+   "col": 24,
+   "len": 29
+  },
+  {
+   "from": "commands.register",
+   "to": "commands.registerInline",
+   "line": 70,
+   "col": 4,
+   "len": 21
+  },
+  {
+   "from": "commands.registerInline",
+   "to": "ikc.constructor",
+   "line": 56,
+   "col": 21,
+   "len": 21
+  },
+  {
+   "from": "commands.rawCall",
+   "to": "commands.call",
+   "line": 151,
+   "col": 18,
+   "len": 4
+  },
+  {
+   "from": "commands.call",
+   "to": "commands.retrieveContext",
+   "line": 162,
+   "col": 14,
+   "len": 15
+  },
+  {
+   "from": "commands.call",
+   "to": "commands.initContext",
+   "line": 166,
+   "col": 16,
+   "len": 11
+  },
+  {
+   "from": "commands.call",
+   "to": "utils.hookNewRelic",
+   "line": 213,
+   "col": 5,
+   "len": 12
+  },
+  {
+   "from": "commands.call",
+   "to": "context.isPrivateChat",
+   "line": 215,
+   "col": 59,
+   "len": 13
+  },
+  {
+   "from": "commands.call",
+   "to": "users.find",
+   "line": 228,
+   "col": 9,
+   "len": 4
+  },
+  {
+   "from": "commands.call",
+   "to": "users.isAdmin",
+   "line": 243,
+   "col": 68,
+   "len": 7
+  },
+  {
+   "from": "commands.call",
+   "to": "users.updateReadAnnouncements",
+   "line": 264,
+   "col": 19,
+   "len": 23
+  },
+  {
+   "from": "commands.call",
+   "to": "commands.callInline",
+   "line": 271,
+   "col": 28,
+   "len": 10
+  },
+  {
+   "from": "commands.call",
+   "to": "context.sendMessageObj",
+   "line": 280,
+   "col": 29,
+   "len": 14
+  },
+  {
+   "from": "commands.call",
+   "to": "commands.sendError",
+   "line": 312,
+   "col": 13,
+   "len": 16
+  },
+  {
+   "from": "commands.call",
+   "to": "kalja033",
+   "line": 274,
+   "col": 34,
+   "len": 7
+  },
+  {
+   "from": "commands.call",
+   "to": "kalja05",
+   "line": 274,
+   "col": 34,
+   "len": 7
+  },
+  {
+   "from": "commands.call",
+   "to": "promillet",
+   "line": 274,
+   "col": 34,
+   "len": 7
+  },
+  {
+   "from": "commands.call",
+   "to": "annokset",
+   "line": 274,
+   "col": 34,
+   "len": 7
+  },
+  {
+   "from": "commands.call",
+   "to": "kuvaaja",
+   "line": 274,
+   "col": 34,
+   "len": 7
+  },
+  {
+   "from": "commands.call",
+   "to": "whoami",
+   "line": 274,
+   "col": 34,
+   "len": 7
+  },
+  {
+   "from": "commands.call",
+   "to": "stats",
+   "line": 274,
+   "col": 34,
+   "len": 7
+  },
+  {
+   "from": "commands.call",
+   "to": "stats2",
+   "line": 274,
+   "col": 34,
+   "len": 7
+  },
+  {
+   "from": "commands.call",
+   "to": "admin_stats",
+   "line": 274,
+   "col": 34,
+   "len": 7
+  },
+  {
+   "from": "commands.call",
+   "to": "moro",
+   "line": 274,
+   "col": 34,
+   "len": 7
+  },
+  {
+   "from": "commands.call",
+   "to": "poistu",
+   "line": 274,
+   "col": 34,
+   "len": 7
+  },
+  {
+   "from": "commands.call",
+   "to": "data",
+   "line": 274,
+   "col": 34,
+   "len": 7
+  },
+  {
+   "from": "commands.call",
+   "to": "terms",
+   "line": 274,
+   "col": 34,
+   "len": 7
+  },
+  {
+   "from": "commands.call",
+   "to": "about",
+   "line": 274,
+   "col": 34,
+   "len": 7
+  },
+  {
+   "from": "commands.call",
+   "to": "help",
+   "line": 274,
+   "col": 34,
+   "len": 7
+  },
+  {
+   "from": "commands.call",
+   "to": "komennot",
+   "line": 274,
+   "col": 34,
+   "len": 7
+  },
+  {
+   "from": "commands.call",
+   "to": "admin_loglevel",
+   "line": 274,
+   "col": 34,
+   "len": 7
+  },
+  {
+   "from": "commands.call",
+   "to": "juoma.phases",
+   "line": 290,
+   "col": 25,
+   "len": 12
+  },
+  {
+   "from": "commands.call",
+   "to": "jalkikellotus.phases",
+   "line": 290,
+   "col": 25,
+   "len": 12
+  },
+  {
+   "from": "commands.call",
+   "to": "laatta.phases",
+   "line": 290,
+   "col": 25,
+   "len": 12
+  },
+  {
+   "from": "commands.call",
+   "to": "tunnus.phases",
+   "line": 290,
+   "col": 25,
+   "len": 12
+  },
+  {
+   "from": "commands.initContext",
+   "to": "context.constructor",
+   "line": 94,
+   "col": 29,
+   "len": 7
+  },
+  {
+   "from": "commands.sendError",
+   "to": "utils.sendPrivate",
+   "line": 111,
+   "col": 17,
+   "len": 18
+  },
+  {
+   "from": "commands.callInline",
+   "to": "ikc.onSelect",
+   "line": 320,
+   "col": 26,
+   "len": 8
+  },
+  {
+   "from": "commands.callInline",
+   "to": "ikc.getParent",
+   "line": 328,
+   "col": 19,
+   "len": 9
+  },
+  {
+   "from": "commands.callInline",
+   "to": "ikc.getChild",
+   "line": 329,
+   "col": 19,
+   "len": 8
+  },
+  {
+   "from": "commands.callInline",
+   "to": "ikc.isAvailableForUser",
+   "line": 333,
+   "col": 21,
+   "len": 18
+  },
+  {
+   "from": "commands.callInline",
+   "to": "ikc.onExit",
+   "line": 337,
+   "col": 15,
+   "len": 6
+  },
+  {
+   "from": "commands.callInline",
+   "to": "ikc.onText",
+   "line": 343,
+   "col": 20,
+   "len": 6
+  },
+  {
+   "from": "ikc.constructor",
+   "to": "ikc.constructor",
+   "line": 61,
+   "col": 22,
+   "len": 21
+  },
+  {
+   "from": "ikc.isAvailableForUser",
+   "to": "users.isAdmin",
+   "line": 70,
+   "col": 63,
+   "len": 7
+  },
+  {
+   "from": "ikc.getInlineKeyboard",
+   "to": "ikc.isAvailableForUser",
+   "line": 91,
+   "col": 16,
+   "len": 18
+  },
+  {
+   "from": "ikc.sendTextAndKeyboard",
+   "to": "ikc.getInlineKeyboard",
+   "line": 139,
+   "col": 66,
+   "len": 17
+  },
+  {
+   "from": "ikc.sendTextAndKeyboard",
+   "to": "context.inlineKeyboardEdit",
+   "line": 139,
+   "col": 23,
+   "len": 18
+  },
+  {
+   "from": "ikc.sendTextAndKeyboard",
+   "to": "context.inlineKeyboardMessage",
+   "line": 141,
+   "col": 23,
+   "len": 21
+  },
+  {
+   "from": "ikc.onSelect",
+   "to": "context.state",
+   "line": 151,
+   "col": 14,
+   "len": 14
+  },
+  {
+   "from": "ikc.onSelect",
+   "to": "ikc.sendTextAndKeyboard",
+   "line": 156,
+   "col": 20,
+   "len": 19
+  },
+  {
+   "from": "ikc.onSelect",
+   "to": "start.root",
+   "line": 155,
+   "col": 18,
+   "len": 14
+  },
+  {
+   "from": "ikc.onSelect",
+   "to": "start.asetukset",
+   "line": 155,
+   "col": 18,
+   "len": 14
+  },
+  {
+   "from": "ikc.onSelect",
+   "to": "start.tilastoja",
+   "line": 155,
+   "col": 18,
+   "len": 14
+  },
+  {
+   "from": "ikc.onSelect",
+   "to": "start.juo",
+   "line": 155,
+   "col": 18,
+   "len": 14
+  },
+  {
+   "from": "ikc.onSelect",
+   "to": "start.help",
+   "line": 156,
+   "col": 20,
+   "len": 19
+  },
+  {
+   "from": "ikc.onText",
+   "to": "start.luo_tunnus",
+   "line": 166,
+   "col": 20,
+   "len": 12
+  },
+  {
+   "from": "ikc.onText",
+   "to": "start.juo",
+   "line": 166,
+   "col": 20,
+   "len": 12
+  },
+  {
+   "from": "ikc.onText",
+   "to": "context.privateReplyWithKeyboard",
+   "line": 181,
+   "col": 27,
+   "len": 24
+  },
+  {
+   "from": "ikc.onExit",
+   "to": "start.luo_tunnus",
+   "line": 189,
+   "col": 13,
+   "len": 12
+  },
+  {
+   "from": "context.sendMessage",
+   "to": "utils.sendTo",
+   "line": 49,
+   "col": 20,
+   "len": 11
+  },
+  {
+   "from": "context.editMessage",
+   "to": "utils.editText",
+   "line": 73,
+   "col": 20,
+   "len": 15
+  },
+  {
+   "from": "context.privateReply",
+   "to": "context.sendMessage",
+   "line": 83,
+   "col": 16,
+   "len": 11
+  },
+  {
+   "from": "context.privateReplyWithKeyboard",
+   "to": "context.sendMessage",
+   "line": 94,
+   "col": 16,
+   "len": 11
+  },
+  {
+   "from": "context.inlineKeyboardMessage",
+   "to": "context.sendMessage",
+   "line": 105,
+   "col": 16,
+   "len": 11
+  },
+  {
+   "from": "context.inlineKeyboardEdit",
+   "to": "context.editMessage",
+   "line": 116,
+   "col": 16,
+   "len": 11
+  },
+  {
+   "from": "context.chatReply",
+   "to": "utils.sendTo",
+   "line": 120,
+   "col": 20,
+   "len": 11
+  },
+  {
+   "from": "context.photoReply",
+   "to": "utils.sendPhoto",
+   "line": 124,
+   "col": 20,
+   "len": 9
+  },
+  {
+   "from": "context.privateDocumentReply",
+   "to": "utils.sendDocument",
+   "line": 130,
+   "col": 20,
+   "len": 12
+  },
+  {
+   "from": "context.sendMessageObj",
+   "to": "utils.sendPhoto",
+   "line": 139,
+   "col": 22,
+   "len": 9
+  },
+  {
+   "from": "context.sendMessageObj",
+   "to": "utils.sendTo",
+   "line": 133,
+   "col": 2,
+   "len": 11
+  },
+  {
+   "from": "alcomath.estimateAbsorbed",
+   "to": "alcomath.getWidmarkFactorForUser",
+   "line": 106,
+   "col": 21,
+   "len": 23
+  },
+  {
+   "from": "alcomath.calculateEBACFromDrinks",
+   "to": "alcomath.getUserMetabolismRate",
+   "line": 131,
+   "col": 22,
+   "len": 21
+  },
+  {
+   "from": "alcomath.calculateEBACFromDrinks",
+   "to": "alcomath.estimateAbsorbed",
+   "line": 157,
+   "col": 45,
+   "len": 36
+  },
+  {
+   "from": "alcomath.calculateEBACFromDrinks",
+   "to": "alcomath.estimateUnburned",
+   "line": 184,
+   "col": 20,
+   "len": 23
+  },
+  {
+   "from": "alcomath.calculateEBACByHour",
+   "to": "alcomath.getUserMetabolismRate",
+   "line": 192,
+   "col": 22,
+   "len": 21
+  },
+  {
+   "from": "alcomath.calculateEBACByHour",
+   "to": "alcomath.estimateAbsorbed",
+   "line": 210,
+   "col": 49,
+   "len": 36
+  },
+  {
+   "from": "users.drinkBoozeReturnEBAC",
+   "to": "users.drinkBooze",
+   "line": 149,
+   "col": 7,
+   "len": 10
+  },
+  {
+   "from": "users.drinkBoozeReturnEBAC",
+   "to": "users.getBooze",
+   "line": 150,
+   "col": 23,
+   "len": 8
+  },
+  {
+   "from": "users.drinkBoozeReturnEBAC",
+   "to": "alcomath.calculateEBACFromDrinks",
+   "line": 152,
+   "col": 28,
+   "len": 23
+  },
+  {
+   "from": "users.getEBACWithDrinks",
+   "to": "users.getBooze",
+   "line": 252,
+   "col": 29,
+   "len": 8
+  },
+  {
+   "from": "users.getEBACWithDrinks",
+   "to": "alcomath.calculateEBACFromDrinks",
+   "line": 255,
+   "col": 28,
+   "len": 23
+  },
+  {
+   "from": "groups.getStandardDrinksListing",
+   "to": "groups.getDrinkSumsByUser",
+   "line": 102,
+   "col": 9,
+   "len": 18
+  },
+  {
+   "from": "groups.getPermillesListing",
+   "to": "alcomath.calculateEBACFromDrinks",
+   "line": 160,
+   "col": 26,
+   "len": 23
+  },
+  {
+   "from": "kalja033",
+   "to": "users.drinkBoozeReturnEBAC",
+   "line": 32,
+   "col": 14,
+   "len": 20
+  },
+  {
+   "from": "kalja033",
+   "to": "context.privateReply",
+   "line": 42,
+   "col": 19,
+   "len": 12
+  },
+  {
+   "from": "kalja05",
+   "to": "users.drinkBoozeReturnEBAC",
+   "line": 30,
+   "col": 14,
+   "len": 20
+  },
+  {
+   "from": "kalja05",
+   "to": "context.privateReply",
+   "line": 41,
+   "col": 19,
+   "len": 12
+  },
+  {
+   "from": "juoma.saveDrink",
+   "to": "users.drinkBoozeReturnEBAC",
+   "line": 60,
+   "col": 14,
+   "len": 20
+  },
+  {
+   "from": "juoma.saveDrink",
+   "to": "context.privateReply",
+   "line": 70,
+   "col": 19,
+   "len": 12
+  },
+  {
+   "from": "juoma.phases",
+   "to": "juoma.saveDrink",
+   "line": 116,
+   "col": 13,
+   "len": 9
+  },
+  {
+   "from": "juoma.phases",
+   "to": "message.ctors",
+   "line": 76,
+   "col": 26,
+   "len": 7
+  },
+  {
+   "from": "juoma.phases",
+   "to": "alcomath.isOutOfLimits",
+   "line": 182,
+   "col": 19,
+   "len": 26
+  },
+  {
+   "from": "jalkikellotus.phases",
+   "to": "message.ctors",
+   "line": 36,
+   "col": 26,
+   "len": 7
+  },
+  {
+   "from": "jalkikellotus.phases",
+   "to": "alcomath.isOutOfLimits",
+   "line": 80,
+   "col": 21,
+   "len": 26
+  },
+  {
+   "from": "jalkikellotus.phases",
+   "to": "users.drinkBoozeLate",
+   "line": 117,
+   "col": 18,
+   "len": 14
+  },
+  {
+   "from": "jalkikellotus.phases",
+   "to": "context.privateReply",
+   "line": 72,
+   "col": 18,
+   "len": 12
+  },
+  {
+   "from": "laatta.phases",
+   "to": "message.ctors",
+   "line": 32,
+   "col": 26,
+   "len": 7
+  },
+  {
+   "from": "laatta.phases",
+   "to": "users.getBooze",
+   "line": 46,
+   "col": 27,
+   "len": 8
+  },
+  {
+   "from": "laatta.phases",
+   "to": "alcomath.calculateEBACFromDrinks",
+   "line": 48,
+   "col": 32,
+   "len": 23
+  },
+  {
+   "from": "laatta.phases",
+   "to": "context.privateReply",
+   "line": 51,
+   "col": 27,
+   "len": 12
+  },
+  {
+   "from": "start.root",
+   "to": "users.getEBACWithDrinks",
+   "line": 53,
+   "col": 18,
+   "len": 29
+  },
+  {
+   "from": "start.root",
+   "to": "start.makeDrinksString",
+   "line": 60,
+   "col": 29,
+   "len": 16
+  },
+  {
+   "from": "start.root",
+   "to": "alcomath.toStandardDrinks",
+   "line": 65,
+   "col": 36,
+   "len": 16
+  },
+  {
+   "from": "start.juo",
+   "to": "start.juo.makeDrinkOption",
+   "line": 100,
+   "col": 45,
+   "len": 15
+  },
+  {
+   "from": "start.juo",
+   "to": "start.juo.makeDrinksListString",
+   "line": 87,
+   "col": 33,
+   "len": 20
+  },
+  {
+   "from": "start.juo",
+   "to": "users.getLastNUniqueDrinks",
+   "line": 72,
+   "col": 20,
+   "len": 20
+  },
+  {
+   "from": "start.juo",
+   "to": "users.getEBACWithDrinks",
+   "line": 82,
+   "col": 20,
+   "len": 29
+  },
+  {
+   "from": "start.juo",
+   "to": "alcomath.isOutOfLimits",
+   "line": 154,
+   "col": 25,
+   "len": 26
+  },
+  {
+   "from": "start.juo",
+   "to": "users.drinkBoozeLate",
+   "line": 247,
+   "col": 28,
+   "len": 14
+  },
+  {
+   "from": "start.juo",
+   "to": "users.getLastDrink",
+   "line": 279,
+   "col": 24,
+   "len": 12
+  },
+  {
+   "from": "start.juo",
+   "to": "users.undoDrink",
+   "line": 301,
+   "col": 28,
+   "len": 9
+  },
+  {
+   "from": "start.juo",
+   "to": "alcomath.calculateEBACFromDrinks",
+   "line": 304,
+   "col": 44,
+   "len": 23
+  },
+  {
+   "from": "start.juo.makeDrinkOption",
+   "to": "users.drinkBoozeReturnEBAC",
+   "line": 36,
+   "col": 24,
+   "len": 20
+  },
+  {
+   "from": "start.tilastoja",
+   "to": "start.tilastoja.makeSubMenu",
+   "line": 108,
+   "col": 17,
+   "len": 24
+  },
+  {
+   "from": "start.tilastoja",
+   "to": "start.tilastoja.statsForDays",
+   "line": 100,
+   "col": 13,
+   "len": 12
+  },
+  {
+   "from": "start.tilastoja",
+   "to": "users.getBoozeForLastHours",
+   "line": 126,
+   "col": 18,
+   "len": 20
+  },
+  {
+   "from": "start.tilastoja.makeSubMenu",
+   "to": "users.getDrinkSumForXHours",
+   "line": 51,
+   "col": 16,
+   "len": 20
+  },
+  {
+   "from": "start.tilastoja.statsForDays",
+   "to": "users.getDrinkSumForXHours",
+   "line": 32,
+   "col": 14,
+   "len": 20
+  },
+  {
+   "from": "start.asetukset",
+   "to": "users.updateFields",
+   "line": 68,
+   "col": 20,
+   "len": 12
+  },
+  {
+   "from": "start.asetukset",
+   "to": "context.state",
+   "line": 104,
+   "col": 18,
+   "len": 14
+  },
+  {
+   "from": "start.asetukset",
+   "to": "users.getUsernameFromMsg",
+   "line": 125,
+   "col": 32,
+   "len": 18
+  },
+  {
+   "from": "start.asetukset",
+   "to": "users.delete",
+   "line": 152,
+   "col": 22,
+   "len": 6
+  },
+  {
+   "from": "start.luo_tunnus",
+   "to": "users.getUsernameFromMsg",
+   "line": 36,
+   "col": 27,
+   "len": 18
+  },
+  {
+   "from": "start.luo_tunnus",
+   "to": "users.updateInfo",
+   "line": 82,
+   "col": 20,
+   "len": 10
+  },
+  {
+   "from": "start.luo_tunnus",
+   "to": "users.new",
+   "line": 86,
+   "col": 21,
+   "len": 3
+  },
+  {
+   "from": "start.luo_tunnus",
+   "to": "context.state",
+   "line": 42,
+   "col": 12,
+   "len": 13
+  },
+  {
+   "from": "promillet",
+   "to": "users.getBooze",
+   "line": 61,
+   "col": 29,
+   "len": 8
+  },
+  {
+   "from": "promillet",
+   "to": "users.getBoozeForLastHours",
+   "line": 61,
+   "col": 46,
+   "len": 20
+  },
+  {
+   "from": "promillet",
+   "to": "alcomath.calculateEBACFromDrinks",
+   "line": 64,
+   "col": 26,
+   "len": 23
+  },
+  {
+   "from": "promillet",
+   "to": "alcomath.getUserMetabolismRate",
+   "line": 68,
+   "col": 36,
+   "len": 21
+  },
+  {
+   "from": "promillet",
+   "to": "promillet.makeDrinksString",
+   "line": 79,
+   "col": 22,
+   "len": 16
+  },
+  {
+   "from": "promillet",
+   "to": "context.privateReply",
+   "line": 82,
+   "col": 21,
+   "len": 12
+  },
+  {
+   "from": "promillet",
+   "to": "groups.Group",
+   "line": 85,
+   "col": 27,
+   "len": 5
+  },
+  {
+   "from": "promillet",
+   "to": "groups.getPermillesListing",
+   "line": 86,
+   "col": 17,
+   "len": 19
+  },
+  {
+   "from": "promillet",
+   "to": "context.chatReply",
+   "line": 99,
+   "col": 21,
+   "len": 9
+  },
+  {
+   "from": "annokset",
+   "to": "users.getBooze",
+   "line": 63,
+   "col": 29,
+   "len": 8
+  },
+  {
+   "from": "annokset",
+   "to": "alcomath.calculateEBACFromDrinks",
+   "line": 66,
+   "col": 26,
+   "len": 23
+  },
+  {
+   "from": "annokset",
+   "to": "context.privateReply",
+   "line": 83,
+   "col": 21,
+   "len": 12
+  },
+  {
+   "from": "annokset",
+   "to": "groups.getStandardDrinksListing",
+   "line": 87,
+   "col": 17,
+   "len": 24
+  },
+  {
+   "from": "annokset",
+   "to": "context.chatReply",
+   "line": 100,
+   "col": 21,
+   "len": 9
+  },
+  {
+   "from": "kuvaaja",
+   "to": "context.isPrivateChat",
+   "line": 43,
+   "col": 29,
+   "len": 13
+  },
+  {
+   "from": "kuvaaja",
+   "to": "groups.getDrinkTimesByUser",
+   "line": 45,
+   "col": 12,
+   "len": 19
+  },
+  {
+   "from": "kuvaaja",
+   "to": "users.getDrinkTimesByUser",
+   "line": 44,
+   "col": 11,
+   "len": 19
+  },
+  {
+   "from": "kuvaaja",
+   "to": "alcomath.calculateEBACByHour",
+   "line": 65,
+   "col": 39,
+   "len": 29
+  },
+  {
+   "from": "kuvaaja",
+   "to": "linechart.getLineGraphBuffer",
+   "line": 127,
+   "col": 23,
+   "len": 18
+  },
+  {
+   "from": "kuvaaja",
+   "to": "context.photoReply",
+   "line": 135,
+   "col": 28,
+   "len": 10
+  },
+  {
+   "from": "whoami",
+   "to": "context.privateReply",
+   "line": 29,
+   "col": 17,
+   "len": 12
+  },
+  {
+   "from": "stats",
+   "to": "context.isPrivateChat",
+   "line": 33,
+   "col": 14,
+   "len": 13
+  },
+  {
+   "from": "stats",
+   "to": "users.getDrinkSumForXHours",
+   "line": 34,
+   "col": 16,
+   "len": 20
+  },
+  {
+   "from": "stats",
+   "to": "stats.getGroupStats",
+   "line": 54,
+   "col": 17,
+   "len": 13
+  },
+  {
+   "from": "stats",
+   "to": "context.chatReply",
+   "line": 67,
+   "col": 21,
+   "len": 9
+  },
+  {
+   "from": "stats2",
+   "to": "context.isPrivateChat",
+   "line": 34,
+   "col": 14,
+   "len": 13
+  },
+  {
+   "from": "stats2",
+   "to": "users.getDrinkSumForXHours",
+   "line": 35,
+   "col": 16,
+   "len": 20
+  },
+  {
+   "from": "stats2",
+   "to": "stats.getGroupAlcoholSumStats",
+   "line": 55,
+   "col": 17,
+   "len": 23
+  },
+  {
+   "from": "stats2",
+   "to": "alcomath.toStandardDrinks",
+   "line": 60,
+   "col": 57,
+   "len": 16
+  },
+  {
+   "from": "stats2",
+   "to": "context.chatReply",
+   "line": 71,
+   "col": 21,
+   "len": 9
+  },
+  {
+   "from": "admin_stats",
+   "to": "stats.getGlobalStats",
+   "line": 30,
+   "col": 15,
+   "len": 14
+  },
+  {
+   "from": "admin_stats",
+   "to": "context.privateReply",
+   "line": 34,
+   "col": 19,
+   "len": 12
+  },
+  {
+   "from": "tunnus.phases",
+   "to": "message.ctors",
+   "line": 36,
+   "col": 26,
+   "len": 7
+  },
+  {
+   "from": "tunnus.phases",
+   "to": "users.updateInfo",
+   "line": 122,
+   "col": 22,
+   "len": 10
+  },
+  {
+   "from": "tunnus.phases",
+   "to": "users.new",
+   "line": 126,
+   "col": 23,
+   "len": 3
+  },
+  {
+   "from": "tunnus.phases",
+   "to": "context.privateReply",
+   "line": 112,
+   "col": 23,
+   "len": 12
+  },
+  {
+   "from": "moro",
+   "to": "users.joinGroup",
+   "line": 28,
+   "col": 14,
+   "len": 9
+  },
+  {
+   "from": "moro",
+   "to": "context.chatReply",
+   "line": 30,
+   "col": 19,
+   "len": 9
+  },
+  {
+   "from": "poistu",
+   "to": "users.leaveGroup",
+   "line": 28,
+   "col": 14,
+   "len": 10
+  },
+  {
+   "from": "poistu",
+   "to": "context.chatReply",
+   "line": 30,
+   "col": 19,
+   "len": 9
+  },
+  {
+   "from": "data",
+   "to": "users.getAllData",
+   "line": 34,
+   "col": 15,
+   "len": 10
+  },
+  {
+   "from": "data",
+   "to": "context.privateDocumentReply",
+   "line": 46,
+   "col": 18,
+   "len": 20
+  },
+  {
+   "from": "admin_loglevel",
+   "to": "context.privateReply",
+   "line": 42,
+   "col": 17,
+   "len": 12
+  }
+ ],
+ "requires": [
+  {
+   "from": "app/commands/about.js",
+   "to": "app/lib/commands.js"
+  },
+  {
+   "from": "app/commands/about.js",
+   "to": "app/strings.js"
+  },
+  {
+   "from": "app/commands/admin_loglevel.js",
+   "to": "app/lib/commands.js"
+  },
+  {
+   "from": "app/commands/admin_loglevel.js",
+   "to": "app/strings.js"
+  },
+  {
+   "from": "app/commands/admin_stats.js",
+   "to": "app/db/stats.js"
+  },
+  {
+   "from": "app/commands/admin_stats.js",
+   "to": "app/lib/commands.js"
+  },
+  {
+   "from": "app/commands/admin_stats.js",
+   "to": "app/lib/utils.js"
+  },
+  {
+   "from": "app/commands/admin_stats.js",
+   "to": "app/strings.js"
+  },
+  {
+   "from": "app/commands/annokset.js",
+   "to": "app/constants.js"
+  },
+  {
+   "from": "app/commands/annokset.js",
+   "to": "app/db/groups.js"
+  },
+  {
+   "from": "app/commands/annokset.js",
+   "to": "app/lib/alcomath.js"
+  },
+  {
+   "from": "app/commands/annokset.js",
+   "to": "app/lib/commands.js"
+  },
+  {
+   "from": "app/commands/annokset.js",
+   "to": "app/lib/utils.js"
+  },
+  {
+   "from": "app/commands/annokset.js",
+   "to": "app/strings.js"
+  },
+  {
+   "from": "app/commands/data.js",
+   "to": "app/db/users.js"
+  },
+  {
+   "from": "app/commands/data.js",
+   "to": "app/lib/commands.js"
+  },
+  {
+   "from": "app/commands/data.js",
+   "to": "app/lib/utils.js"
+  },
+  {
+   "from": "app/commands/data.js",
+   "to": "app/strings.js"
+  },
+  {
+   "from": "app/commands/help.js",
+   "to": "app/lib/commands.js"
+  },
+  {
+   "from": "app/commands/help.js",
+   "to": "app/strings.js"
+  },
+  {
+   "from": "app/commands/jalkikellotus.js",
+   "to": "app/constants.js"
+  },
+  {
+   "from": "app/commands/jalkikellotus.js",
+   "to": "app/lib/alcomath.js"
+  },
+  {
+   "from": "app/commands/jalkikellotus.js",
+   "to": "app/lib/commands.js"
+  },
+  {
+   "from": "app/commands/jalkikellotus.js",
+   "to": "app/lib/message.js"
+  },
+  {
+   "from": "app/commands/jalkikellotus.js",
+   "to": "app/lib/utils.js"
+  },
+  {
+   "from": "app/commands/jalkikellotus.js",
+   "to": "app/strings.js"
+  },
+  {
+   "from": "app/commands/juoma.js",
+   "to": "app/constants.js"
+  },
+  {
+   "from": "app/commands/juoma.js",
+   "to": "app/lib/alcomath.js"
+  },
+  {
+   "from": "app/commands/juoma.js",
+   "to": "app/lib/commands.js"
+  },
+  {
+   "from": "app/commands/juoma.js",
+   "to": "app/lib/message.js"
+  },
+  {
+   "from": "app/commands/juoma.js",
+   "to": "app/lib/utils.js"
+  },
+  {
+   "from": "app/commands/juoma.js",
+   "to": "app/strings.js"
+  },
+  {
+   "from": "app/commands/kalja033.js",
+   "to": "app/constants.js"
+  },
+  {
+   "from": "app/commands/kalja033.js",
+   "to": "app/lib/commands.js"
+  },
+  {
+   "from": "app/commands/kalja033.js",
+   "to": "app/lib/utils.js"
+  },
+  {
+   "from": "app/commands/kalja033.js",
+   "to": "app/strings.js"
+  },
+  {
+   "from": "app/commands/kalja05.js",
+   "to": "app/constants.js"
+  },
+  {
+   "from": "app/commands/kalja05.js",
+   "to": "app/lib/commands.js"
+  },
+  {
+   "from": "app/commands/kalja05.js",
+   "to": "app/lib/utils.js"
+  },
+  {
+   "from": "app/commands/kalja05.js",
+   "to": "app/strings.js"
+  },
+  {
+   "from": "app/commands/komennot.js",
+   "to": "app/lib/commands.js"
+  },
+  {
+   "from": "app/commands/komennot.js",
+   "to": "app/strings.js"
+  },
+  {
+   "from": "app/commands/kuvaaja.js",
+   "to": "app/db/groups.js"
+  },
+  {
+   "from": "app/commands/kuvaaja.js",
+   "to": "app/db/users.js"
+  },
+  {
+   "from": "app/commands/kuvaaja.js",
+   "to": "app/lib/alcomath.js"
+  },
+  {
+   "from": "app/commands/kuvaaja.js",
+   "to": "app/lib/commands.js"
+  },
+  {
+   "from": "app/commands/kuvaaja.js",
+   "to": "app/lib/linechart.js"
+  },
+  {
+   "from": "app/commands/kuvaaja.js",
+   "to": "app/lib/utils.js"
+  },
+  {
+   "from": "app/commands/kuvaaja.js",
+   "to": "app/strings.js"
+  },
+  {
+   "from": "app/commands/laatta.js",
+   "to": "app/lib/alcomath.js"
+  },
+  {
+   "from": "app/commands/laatta.js",
+   "to": "app/lib/commands.js"
+  },
+  {
+   "from": "app/commands/laatta.js",
+   "to": "app/lib/message.js"
+  },
+  {
+   "from": "app/commands/laatta.js",
+   "to": "app/lib/utils.js"
+  },
+  {
+   "from": "app/commands/laatta.js",
+   "to": "app/strings.js"
+  },
+  {
+   "from": "app/commands/moro.js",
+   "to": "app/lib/commands.js"
+  },
+  {
+   "from": "app/commands/moro.js",
+   "to": "app/strings.js"
+  },
+  {
+   "from": "app/commands/poistu.js",
+   "to": "app/lib/commands.js"
+  },
+  {
+   "from": "app/commands/poistu.js",
+   "to": "app/strings.js"
+  },
+  {
+   "from": "app/commands/promillet.js",
+   "to": "app/constants.js"
+  },
+  {
+   "from": "app/commands/promillet.js",
+   "to": "app/db/groups.js"
+  },
+  {
+   "from": "app/commands/promillet.js",
+   "to": "app/lib/alcomath.js"
+  },
+  {
+   "from": "app/commands/promillet.js",
+   "to": "app/lib/commands.js"
+  },
+  {
+   "from": "app/commands/promillet.js",
+   "to": "app/lib/utils.js"
+  },
+  {
+   "from": "app/commands/promillet.js",
+   "to": "app/strings.js"
+  },
+  {
+   "from": "app/commands/start.js",
+   "to": "app/commands/start/asetukset.js"
+  },
+  {
+   "from": "app/commands/start.js",
+   "to": "app/commands/start/help.js"
+  },
+  {
+   "from": "app/commands/start.js",
+   "to": "app/commands/start/juo.js"
+  },
+  {
+   "from": "app/commands/start.js",
+   "to": "app/commands/start/luo_tunnus.js"
+  },
+  {
+   "from": "app/commands/start.js",
+   "to": "app/commands/start/tilastoja.js"
+  },
+  {
+   "from": "app/commands/start.js",
+   "to": "app/lib/alcomath.js"
+  },
+  {
+   "from": "app/commands/start.js",
+   "to": "app/lib/commands.js"
+  },
+  {
+   "from": "app/commands/start.js",
+   "to": "app/lib/utils.js"
+  },
+  {
+   "from": "app/commands/start.js",
+   "to": "app/strings.js"
+  },
+  {
+   "from": "app/commands/start/asetukset.js",
+   "to": "app/db/users.js"
+  },
+  {
+   "from": "app/commands/start/asetukset.js",
+   "to": "app/lib/utils.js"
+  },
+  {
+   "from": "app/commands/start/asetukset.js",
+   "to": "app/strings.js"
+  },
+  {
+   "from": "app/commands/start/help.js",
+   "to": "app/constants.js"
+  },
+  {
+   "from": "app/commands/start/help.js",
+   "to": "app/lib/utils.js"
+  },
+  {
+   "from": "app/commands/start/help.js",
+   "to": "app/strings.js"
+  },
+  {
+   "from": "app/commands/start/juo.js",
+   "to": "app/constants.js"
+  },
+  {
+   "from": "app/commands/start/juo.js",
+   "to": "app/lib/alcomath.js"
+  },
+  {
+   "from": "app/commands/start/juo.js",
+   "to": "app/lib/utils.js"
+  },
+  {
+   "from": "app/commands/start/juo.js",
+   "to": "app/strings.js"
+  },
+  {
+   "from": "app/commands/start/luo_tunnus.js",
+   "to": "app/db/users.js"
+  },
+  {
+   "from": "app/commands/start/luo_tunnus.js",
+   "to": "app/lib/utils.js"
+  },
+  {
+   "from": "app/commands/start/luo_tunnus.js",
+   "to": "app/strings.js"
+  },
+  {
+   "from": "app/commands/start/tilastoja.js",
+   "to": "app/constants.js"
+  },
+  {
+   "from": "app/commands/start/tilastoja.js",
+   "to": "app/lib/utils.js"
+  },
+  {
+   "from": "app/commands/start/tilastoja.js",
+   "to": "app/strings.js"
+  },
+  {
+   "from": "app/commands/stats.js",
+   "to": "app/constants.js"
+  },
+  {
+   "from": "app/commands/stats.js",
+   "to": "app/db/groups.js"
+  },
+  {
+   "from": "app/commands/stats.js",
+   "to": "app/db/stats.js"
+  },
+  {
+   "from": "app/commands/stats.js",
+   "to": "app/lib/commands.js"
+  },
+  {
+   "from": "app/commands/stats.js",
+   "to": "app/lib/utils.js"
+  },
+  {
+   "from": "app/commands/stats.js",
+   "to": "app/strings.js"
+  },
+  {
+   "from": "app/commands/stats2.js",
+   "to": "app/constants.js"
+  },
+  {
+   "from": "app/commands/stats2.js",
+   "to": "app/db/groups.js"
+  },
+  {
+   "from": "app/commands/stats2.js",
+   "to": "app/db/stats.js"
+  },
+  {
+   "from": "app/commands/stats2.js",
+   "to": "app/lib/alcomath.js"
+  },
+  {
+   "from": "app/commands/stats2.js",
+   "to": "app/lib/commands.js"
+  },
+  {
+   "from": "app/commands/stats2.js",
+   "to": "app/lib/utils.js"
+  },
+  {
+   "from": "app/commands/stats2.js",
+   "to": "app/strings.js"
+  },
+  {
+   "from": "app/commands/terms.js",
+   "to": "app/lib/commands.js"
+  },
+  {
+   "from": "app/commands/terms.js",
+   "to": "app/strings.js"
+  },
+  {
+   "from": "app/commands/tunnus.js",
+   "to": "app/db/users.js"
+  },
+  {
+   "from": "app/commands/tunnus.js",
+   "to": "app/lib/commands.js"
+  },
+  {
+   "from": "app/commands/tunnus.js",
+   "to": "app/lib/message.js"
+  },
+  {
+   "from": "app/commands/tunnus.js",
+   "to": "app/lib/utils.js"
+  },
+  {
+   "from": "app/commands/tunnus.js",
+   "to": "app/strings.js"
+  },
+  {
+   "from": "app/commands/whoami.js",
+   "to": "app/lib/commands.js"
+  },
+  {
+   "from": "app/commands/whoami.js",
+   "to": "app/strings.js"
+  },
+  {
+   "from": "app/db/groups.js",
+   "to": "app/constants.js"
+  },
+  {
+   "from": "app/db/groups.js",
+   "to": "app/db/users.js"
+  },
+  {
+   "from": "app/db/groups.js",
+   "to": "app/lib/alcomath.js"
+  },
+  {
+   "from": "app/db/groups.js",
+   "to": "app/lib/utils.js"
+  },
+  {
+   "from": "app/db/stats.js",
+   "to": "app/lib/utils.js"
+  },
+  {
+   "from": "app/db/users.js",
+   "to": "app/announcements.js"
+  },
+  {
+   "from": "app/db/users.js",
+   "to": "app/lib/alcomath.js"
+  },
+  {
+   "from": "app/db/users.js",
+   "to": "app/lib/utils.js"
+  },
+  {
+   "from": "app/db/users.js",
+   "to": "app/settings.js"
+  },
+  {
+   "from": "app/init.js",
+   "to": "app/commands/about.js"
+  },
+  {
+   "from": "app/init.js",
+   "to": "app/commands/admin_loglevel.js"
+  },
+  {
+   "from": "app/init.js",
+   "to": "app/commands/admin_stats.js"
+  },
+  {
+   "from": "app/init.js",
+   "to": "app/commands/annokset.js"
+  },
+  {
+   "from": "app/init.js",
+   "to": "app/commands/data.js"
+  },
+  {
+   "from": "app/init.js",
+   "to": "app/commands/help.js"
+  },
+  {
+   "from": "app/init.js",
+   "to": "app/commands/jalkikellotus.js"
+  },
+  {
+   "from": "app/init.js",
+   "to": "app/commands/juoma.js"
+  },
+  {
+   "from": "app/init.js",
+   "to": "app/commands/kalja033.js"
+  },
+  {
+   "from": "app/init.js",
+   "to": "app/commands/kalja05.js"
+  },
+  {
+   "from": "app/init.js",
+   "to": "app/commands/komennot.js"
+  },
+  {
+   "from": "app/init.js",
+   "to": "app/commands/kuvaaja.js"
+  },
+  {
+   "from": "app/init.js",
+   "to": "app/commands/laatta.js"
+  },
+  {
+   "from": "app/init.js",
+   "to": "app/commands/moro.js"
+  },
+  {
+   "from": "app/init.js",
+   "to": "app/commands/poistu.js"
+  },
+  {
+   "from": "app/init.js",
+   "to": "app/commands/promillet.js"
+  },
+  {
+   "from": "app/init.js",
+   "to": "app/commands/start.js"
+  },
+  {
+   "from": "app/init.js",
+   "to": "app/commands/stats.js"
+  },
+  {
+   "from": "app/init.js",
+   "to": "app/commands/stats2.js"
+  },
+  {
+   "from": "app/init.js",
+   "to": "app/commands/terms.js"
+  },
+  {
+   "from": "app/init.js",
+   "to": "app/commands/tunnus.js"
+  },
+  {
+   "from": "app/init.js",
+   "to": "app/commands/whoami.js"
+  },
+  {
+   "from": "app/init.js",
+   "to": "app/lib/commands.js"
+  },
+  {
+   "from": "app/init.js",
+   "to": "app/lib/utils.js"
+  },
+  {
+   "from": "app/init.js",
+   "to": "app/settings.js"
+  },
+  {
+   "from": "app/lib/alcomath.js",
+   "to": "app/constants.js"
+  },
+  {
+   "from": "app/lib/alcomath.js",
+   "to": "app/lib/utils.js"
+  },
+  {
+   "from": "app/lib/commands.js",
+   "to": "app/announcements.js"
+  },
+  {
+   "from": "app/lib/commands.js",
+   "to": "app/db/users.js"
+  },
+  {
+   "from": "app/lib/commands.js",
+   "to": "app/lib/context.js"
+  },
+  {
+   "from": "app/lib/commands.js",
+   "to": "app/lib/errors.js"
+  },
+  {
+   "from": "app/lib/commands.js",
+   "to": "app/lib/inline-keyboard-command.js"
+  },
+  {
+   "from": "app/lib/commands.js",
+   "to": "app/lib/utils.js"
+  },
+  {
+   "from": "app/lib/commands.js",
+   "to": "app/settings.js"
+  },
+  {
+   "from": "app/lib/commands.js",
+   "to": "app/strings.js"
+  },
+  {
+   "from": "app/lib/inline-keyboard-command.js",
+   "to": "app/lib/errors.js"
+  },
+  {
+   "from": "app/lib/inline-keyboard-command.js",
+   "to": "app/strings.js"
+  },
+  {
+   "from": "app/lib/utils.js",
+   "to": "app/constants.js"
+  },
+  {
+   "from": "index.js",
+   "to": "app/init.js"
+  },
+  {
+   "from": "index.js",
+   "to": "web.js"
+  }
+ ],
+ "ubiquitous": [
+  "app/strings.js",
+  "app/constants.js",
+  "app/settings.js",
+  "app/lib/utils.js",
+  "app/lib/commands.js"
+ ]
+}

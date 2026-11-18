@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>codegarden</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<script type="importmap">
+  { "imports": { "pixi.js": "https://cdn.jsdelivr.net/npm/pixi.js@8.6.6/dist/pixi.min.mjs" } }
+</script>
+<style>
+  :root {
+    --bg: #f4f2ea;
+    --panel: rgba(255, 255, 255, 0.92);
+    --border: #ddd8c9;
+    --ink: #1f2a24;
+    --soft: #5b6660;
+    --faint: #8b948e;
+    --accent: #e0662f;
+    --leaf: #15803d;
+    --shadow: 0 6px 24px rgba(40, 50, 30, 0.10), 0 1px 3px rgba(40, 50, 30, 0.08);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: var(--bg); color: var(--ink);
+    font: 14px/1.4 Inter, system-ui, sans-serif; overscroll-behavior: none; touch-action: none; }
+  #stage canvas { display: block; cursor: default; }
+  #stage canvas.grabbing { cursor: grabbing; }
+  #stage canvas.link { cursor: pointer; }
+  .brand select { font: inherit; font-weight: 600; color: var(--soft); background: transparent; border: 0;
+    border-radius: 6px; padding: 2px 4px; cursor: pointer; }
+  .brand select:hover { background: rgba(0,0,0,0.05); color: var(--ink); }
+  .back { top: 70px; left: 16px; padding: 8px 14px; font: 600 13px Inter, sans-serif; color: var(--ink); cursor: pointer; }
+  .back:hover { background: #fff; }
+
+  .panel { position: fixed; background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
+    box-shadow: var(--shadow); backdrop-filter: blur(6px); user-select: none; }
+
+  .brand { top: 16px; left: 16px; padding: 9px 14px; display: flex; align-items: center; gap: 9px; font-weight: 700; }
+  .brand svg { width: 20px; height: 20px; }
+  .brand span { color: var(--faint); font-weight: 600; }
+
+  .toggle { top: 16px; left: 50%; transform: translateX(-50%); padding: 4px; display: flex; gap: 2px; }
+  .toggle button, .zoomctl button, .levels button {
+    font: inherit; color: var(--soft); background: none; border: 0; border-radius: 8px; cursor: pointer; }
+  .toggle button { padding: 7px 14px; font-weight: 600; }
+  .toggle button:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
+  .toggle button.on { background: var(--ink); color: #fff; }
+
+  .levels { top: 50%; right: 16px; transform: translateY(-50%); padding: 8px; display: flex; flex-direction: column; gap: 2px; width: 172px; }
+  .levels .cap { font-size: 11px; font-weight: 700; letter-spacing: .06em; color: var(--faint); padding: 4px 8px 6px; }
+  .levels button { --w: 0; display: grid; grid-template-columns: 14px 1fr; gap: 10px; align-items: center;
+    text-align: left; padding: 7px 8px; }
+  .levels button:hover { background: rgba(0,0,0,0.04); }
+  .levels .dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--leaf); position: relative; overflow: hidden; }
+  .levels .dot::after { content: ""; position: absolute; inset: 0; background: var(--leaf); opacity: var(--w); }
+  .levels b { display: block; font-size: 13px; color: var(--ink); font-weight: 600; }
+  .levels small { display: block; font-size: 11.5px; color: var(--faint); }
+  .levels button.on b { color: var(--leaf); }
+
+  .zoomctl { right: 16px; bottom: 16px; padding: 4px; display: flex; align-items: center; gap: 2px; }
+  .zoomctl button { min-width: 32px; height: 32px; font-size: 17px; font-weight: 600; }
+  .zoomctl button:hover { background: rgba(0,0,0,0.05); color: var(--ink); }
+  .zoomctl #fit { font-size: 13px; padding: 0 10px; }
+  .zoomctl #zpct { min-width: 52px; text-align: center; font-variant-numeric: tabular-nums; color: var(--soft); font-weight: 600; font-size: 13px; }
+
+  .hint { left: 16px; bottom: 16px; padding: 8px 12px; color: var(--soft); font-size: 12.5px; }
+  .hint kbd { font: 600 11px Inter, sans-serif; background: #fff; border: 1px solid var(--border); border-bottom-width: 2px;
+    border-radius: 5px; padding: 1px 5px; color: var(--ink); }
+
+  #tip { position: fixed; left: 0; top: 0; pointer-events: none; max-width: 360px; padding: 9px 12px;
+    background: #1f2a24; color: #eef2ec; border-radius: 9px; box-shadow: var(--shadow); font-size: 12.5px; z-index: 5; }
+  #tip b { display: block; font-size: 13.5px; margin-bottom: 2px; }
+  #tip code { display: block; font: 11.5px "JetBrains Mono", monospace; color: #b8c4bb; margin-bottom: 4px; word-break: break-word; }
+  #tip span { display: block; color: #a9b5ad; }
+
+  #error { position: fixed; inset: auto 16px 70px 16px; white-space: pre-wrap; font: 12px "JetBrains Mono", monospace;
+    background: #fff1ee; color: #9a2b13; border: 1px solid #f2b8a8; padding: 12px; border-radius: 10px; z-index: 10; }
+
+  @media (max-width: 760px) {
+    .levels { top: auto; bottom: 64px; transform: none; width: auto; flex-direction: row; }
+    .levels .cap, .levels small { display: none; }
+    .hint { display: none; }
+    .toggle { top: 64px; }
+  }
+</style>
+</head>
+<body>
+<div id="stage"></div>
+
+<div class="panel brand">
+  <svg viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 22V11"/><path d="M12 11c0-4 3-7 8-7 0 4-3 7-8 7z"/><path d="M12 14c0-3-2.5-5.5-7-5.5 0 3 2.5 5.5 7 5.5z"/>
+  </svg>
+  codegarden <span>/</span>
+  <select id="repo" aria-label="Repository">
+    <option value="blakkis">blakkis</option>
+    <option value="nitter">nitter</option>
+  </select>
+</div>
+
+<button class="panel back" id="back" hidden title="Back (Backspace)">← Back</button>
+
+<div class="panel toggle" role="group" aria-label="Top level view">
+  <button data-mode="flow" class="on">Program flow</button>
+  <button data-mode="files">File structure</button>
+</div>
+
+<nav class="panel levels" aria-label="Zoom levels">
+  <div class="cap">ZOOM LEVEL</div>
+  <button data-level="1"><i class="dot"></i><span><b>Architecture</b><small>flow &amp; files</small></span></button>
+  <button data-level="2"><i class="dot"></i><span><b>API contracts</b><small>who calls what</small></span></button>
+  <button data-level="3"><i class="dot"></i><span><b>Code</b><small>source + call sites</small></span></button>
+</nav>
+
+<div class="panel zoomctl">
+  <button id="zout" title="Zoom out" aria-label="Zoom out">−</button>
+  <span id="zpct">100%</span>
+  <button id="zin" title="Zoom in" aria-label="Zoom in">+</button>
+  <button id="fit" title="Fit all (F)">Fit</button>
+</div>
+
+<div class="panel hint">
+  <kbd>Ctrl</kbd> + scroll to zoom · drag / scroll to pan · double-click to focus · click a <u>name</u> in code to jump · <kbd>T</kbd> toggle view
+</div>
+
+<div id="tip" hidden></div>
+<div id="error" hidden></div>
+
+<script>
+  // surface startup errors on the page (module import failures never reach main.js)
+  (function () {
+    const show = msg => { if (/__delay/.test(msg)) return; const b = document.getElementById('error'); b.hidden = false; b.textContent += msg + '\n'; };
+    addEventListener('error', e => show((e.message || 'resource failed: ' + (e.target && (e.target.src || e.target.href))) + (e.filename ? ' @ ' + e.filename + ':' + e.lineno : '')), true);
+    addEventListener('unhandledrejection', e => show('unhandled: ' + (e.reason && e.reason.stack || e.reason)));
+    window.__showError = show;
+  })();
+</script>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
