@@ -17,7 +17,7 @@ const params = new URLSearchParams(location.search);
 if (params.has('shot')) {
   const img = document.createElement('img');
   img.hidden = true;
-  img.src = `/__delay?ms=${+params.get('shot') || 3000}`;
+  img.src = `__delay?ms=${+params.get('shot') || 3000}`;
   document.body.appendChild(img);
 }
 

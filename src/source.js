@@ -1,10 +1,11 @@
 // Loads the real repository sources (raw text) so code panes always show actual code.
-// The server root is the codegarden folder; each repo lives at ../<root>/ next to garden/.
+// Each repo lives inside garden/ (garden/<root>/). URLs are resolved relative to this module, so it
+// works from any base path: a local server, or GitHub Pages at https://<user>.github.io/<project>/.
 
 const files = new Map();
 
 export async function loadSources(root, paths) {
-  const base = new URL(`../../${root}/`, import.meta.url);
+  const base = new URL(`../${root}/`, import.meta.url);
   await Promise.all(
     paths.map(async p => {
       try {

@@ -1,0 +1,37 @@
+{
+  "name": "blakkisvuohi",
+  "version": "4.0.1",
+  "description": "A telegram bot that helps to track estimated blood alcohol concentration",
+  "main": "index.js",
+  "scripts": {
+    "start": "export $(cat .env | xargs) && node index.js",
+    "set_env": "export $(cat .env | xargs)",
+    "start_win": "node index.js",
+    "set_env_win": "env.cmd",
+    "switch_to_dev": "export $(cat .env | xargs) && wget --spider https://api.telegram.org/bot$TOKEN/setWebhook?url= --delete-after && node index.js",
+    "migrate": "export $(cat .env) && ./node_modules/node-pg-migrate/bin/node-pg-migrate up",
+    "test": "export $(cat .env) && ./node_modules/mocha/bin/mocha -w test/*",
+    "test-with-coverage": "export $(cat .env) && nyc --reporter=text mocha --exit test/*",
+    "test-only": "export $(cat .env) && ./node_modules/mocha/bin/mocha -w"
+  },
+  "engines": {
+    "node": "12.12.0",
+    "npm": "6.0.1"
+  },
+  "author": "Joonas Ulmanen",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chart.js": "^2.8.0",
+    "chartjs-node-canvas": "^2.4.0",
+    "express": "^4.17.1",
+    "loglevel": "^1.6.4",
+    "node-pg-migrate": "^3.23.3",
+    "node-telegram-bot-api": "^0.40.0",
+    "pg": "^7.12.1"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.2",
+    "nyc": "^14.1.1"
+  }
+}

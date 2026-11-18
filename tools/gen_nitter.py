@@ -15,7 +15,7 @@ Usage:  python3 garden/tools/gen_nitter.py
 import json, os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-REPO = os.path.normpath(os.path.join(HERE, '..', '..', 'nitter'))
+REPO = os.path.normpath(os.path.join(HERE, '..', 'nitter'))
 SRC = os.path.join(REPO, 'src')
 OUT = os.path.normpath(os.path.join(HERE, '..', 'data', 'nitter.json'))
 

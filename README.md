@@ -1,7 +1,7 @@
 # codegarden — UI prototype
 
 A Miro-like infinite whiteboard that shows a repository as a garden. Two sample repos are included:
-`../blakkis` (Node.js Telegram bot) and `../nitter` (Nim web app). Switch between them with the
+`blakkis/` (Node.js Telegram bot) and `nitter/` (Nim web app), both inside this folder. Switch between them with the
 picker next to the logo, or with `?repo=nitter`.
 Zoom changes **what** you see, not just how big it is:
 
@@ -19,8 +19,21 @@ The levels crossfade continuously (`src/zoom.js`), and everything sits in one ne
 No Node is needed. The page uses buildless ES modules, and PixiJS v8 loads from jsDelivr.
 
 ```sh
-./serve.sh            # serves ../ (codegarden) on http://localhost:8137/garden/
+./serve.sh            # serves this folder on http://localhost:8137/
 ```
+
+### GitHub Pages
+
+This folder is a self-contained static site. Every URL (data, sources, modules) is resolved relative to
+the page, so it works at a user site root and under a project sub-path (`https://<user>.github.io/<project>/`).
+Publish it as the Pages root, or as `/docs` if it's renamed. `.nojekyll` stops Jekyll from processing it.
+
+Two things to check before pushing:
+- `blakkis/` and `nitter/` each contain their own `.git`. Git treats them as embedded repos, so their files would
+  **not** be committed or served. Either remove those inner `.git` folders (vendoring a copy) or add them as
+  public submodules (Pages checks out public submodules).
+- `blakkis/` includes `.env*` files (TOKEN, DATABASE_URL, SECRET, …). Anything committed here becomes public.
+  The page only fetches the `.js` sources listed in `data/blakkis.json`, so those files can be deleted or gitignored.
 
 ## Controls
 
@@ -43,7 +56,7 @@ No Node is needed. The page uses buildless ES modules, and PixiJS v8 loads from 
 python3 tools/gen_data.py && python3 tools/gen_nitter.py
 ```
 
-To add another repo, put it next to `garden/`, write a generator that emits the same JSON shape
+To add another repo, put it inside this folder, write a generator that emits the same JSON shape
 (`repo, title, lang, root, groups, dirs, functions, calls, links, requires`), and add it to the picker in `index.html`.
 
 ## Layout of the code
